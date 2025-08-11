@@ -1,11 +1,101 @@
-/* styles.css */
+/* Global Styles */
 body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
-header {
-  background: #f4e1d2;
-  padding: 2rem;
-  text-align: center;
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding-top: 70px;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+/* Team Section */
+.team-member {
+    text-align: center;
+    padding: 20px;
+}
+
+.team-member img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Services Section */
+.service-card {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Testimonials Section */
+.testimonial-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.client-name {
+    font-style: italic;
+    color: #666;
+}
+
+/* Contact Section */
+.social-media a {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #007bff;
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
 }

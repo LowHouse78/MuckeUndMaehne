@@ -1,16 +1,168 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Friseur Mustermann</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUCKE & MÄHNE - Ihr Friseursalon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Friseur Mustermann</h1>
-    <p>Ihr Salon für Stil und Wohlbefinden</p>
-  </header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">MUCKE & MÄHNE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Leistungen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Erfahrungen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Willkommen bei</h1>
+            <h1>MUCKE & MÄHNE</h1>
+            <p>Ihr Friseursalon für den perfekten Look</p>
+            <a href="#contact" class="btn btn-primary">Termin vereinbaren</a>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Unser Team</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1595867818082-083862f3d630" alt="Tina Mucke" class="img-fluid rounded-circle mb-3">
+                        <h3>Tina Mucke</h3>
+                        <p>Meisterfriseurin & Inhaberin</p>
+                        <p>Spezialisiert auf Colorationen und Hochsteckfrisuren</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c" alt="Nils Mucke" class="img-fluid rounded-circle mb-3">
+                        <h3>Nils Mucke</h3>
+                        <p>Meisterfriseur & Inhaber</p>
+                        <p>Experte für Herrenschnitte und Bartpflege</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Unsere Leistungen</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11" alt="Damenschnitt" class="img-fluid">
+                        <h3>Damenschnitte</h3>
+                        <p>ab 35€</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" alt="Herrenschnitt" class="img-fluid">
+                        <h3>Herrenschnitte</h3>
+                        <p>ab 25€</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1470259078422-826894b933aa" alt="Färben" class="img-fluid">
+                        <h3>Färben</h3>
+                        <p>ab 55€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Das sagen unsere Kunden</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Absolute Profis! Meine Haare sehen immer großartig aus."</p>
+                        <p class="client-name">- Sarah M.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Der beste Friseursalon in Taunusstein. Super Beratung!"</p>
+                        <p class="client-name">- Michael K.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Tolle Atmosphäre und erstklassige Ergebnisse."</p>
+                        <p class="client-name">- Lisa B.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Kontakt & Öffnungszeiten</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Öffnungszeiten</h3>
+                    <ul class="list-unstyled">
+                        <li>Montag: geschlossen</li>
+                        <li>Dienstag - Freitag: 9:00 - 18:00</li>
+                        <li>Samstag: 9:00 - 14:00</li>
+                        <li>Sonntag: geschlossen</li>
+                    </ul>
+                    <h3 class="mt-4">Terminvereinbarung</h3>
+                    <p>
+                        <i class="bi bi-whatsapp"></i> WhatsApp: +49 123 456789<br>
+                        <i class="bi bi-envelope"></i> Email: termin@muckeundmaehne.de
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Adresse</h3>
+                    <p>
+                        Mucke und Mähne<br>
+                        Hauptstraße 123<br>
+                        12345 Musterstadt
+                    </p>
+                    <div class="social-media mt-4">
+                        <h3>Social Media</h3>
+                        <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="bi bi-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-3 bg-dark text-white">
+        <div class="container text-center">
+            <p>&copy; 2025 MUCKE & MÄHNE. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
