@@ -6,7 +6,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f');
+    background-color: #f8f9fa;
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -14,7 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: black;
     padding-top: 70px;
 }
 
