@@ -96,12 +96,37 @@ body {
         background-color: rgba(107, 46, 46, 1) !important; /* Keine Transparenz auf Mobile */
     }
 
-    .navbar-brand::after {
+    /* Container für zentrierten Text */
+    .navbar .container {
+        position: relative;
+    }
+
+    /* Text horizontal zentriert zwischen Logo und Hamburger-Menü */
+    .navbar .container::after {
         content: "Mucke & Mähne";
         color: white;
         font-size: 1.2rem;
         font-weight: bold;
-        margin-left: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Text verstecken wenn Menü aufgeklappt ist */
+    .navbar-toggler[aria-expanded="true"] ~ .navbar-collapse ~ * .container::after,
+    .navbar-collapse.show ~ * .container::after {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* Direkter Ansatz über Attribut-Selektor */
+    .navbar-toggler[aria-expanded="true"] + .navbar-collapse + * .container::after {
+        display: none;
     }
 }
 
