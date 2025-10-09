@@ -10,18 +10,26 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="min-height: 80px; background-color: #6B2E2E;">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="Images/Logo_MM.png" alt="MUCKE & MÄHNE Logo" height="30" class="me-2 d-none d-sm-inline">
-                <span class="fs-6 fs-sm-5">MUCKE & MÄHNE</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Zurück zur Hauptseite</a></li>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item me-3">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html" style="margin: 0; padding: 0;">
+                            <img src="Images/Logo_MM_inverted.png" alt="MUCKE & MÄHNE Logo" height="80">
+                        </a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#home" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#team" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Team</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#services" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Leistungen</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#philosophie" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Philosophie</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#products" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Unsere Produkte</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html#contact" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Kontakt</a></li>
+                    <li class="nav-item"><a class="nav-link text-white active" href="RICAProducts.html" style="font-size: 1.32rem; padding: 0.7rem 1rem;">RICA Produkte</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="impressum.html" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Impressum</a></li>
                 </ul>
             </div>
         </div>
@@ -37,7 +45,7 @@
                         [RICA LOGO]
                     </div>
                     <h1 class="mb-4" style="color: #9A0708;">RICA Produktwelt</h1>
-                    <p class="lead">Entdecken Sie die umfassende RICA Produktpalette - von veganer Haarfarbe bis zu luxuriöser Naturpflege</p>
+                    <p class="lead">Entdecken Sie die umfassende RICA Produktpalette -<br>von veganer Haarfarbe bis zu luxuriöser Naturpflege</p>
                 </div>
             </div>
         </div>
@@ -59,16 +67,34 @@
                                     <div class="row mb-4">
                                         <div class="col-md-6">
                                             <ul class="list-unstyled">
-                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i><strong>100% vegan</strong></li>
-                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i><strong>Bis zu 94% natürliche Inhaltsstoffe</strong></li>
-                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i><strong>Dermatologisch getestet</strong></li>
+                                                <li class="mb-2 d-flex align-items-center">
+                                                    <i class="bi bi-check-circle text-success me-2 flex-shrink-0"></i>
+                                                    <strong>100% vegan</strong>
+                                                </li>
+                                                <li class="mb-2 d-flex">
+                                                    <i class="bi bi-check-circle text-success me-2 flex-shrink-0" style="margin-top: 2px;"></i>
+                                                    <strong>Bis zu 94% natürliche Inhaltsstoffe</strong>
+                                                </li>
+                                                <li class="mb-2 d-flex align-items-center">
+                                                    <i class="bi bi-check-circle text-success me-2 flex-shrink-0"></i>
+                                                    <strong>Dermatologisch getestet</strong>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
                                             <ul class="list-unstyled">
-                                                <li class="mb-2"><i class="bi bi-x-circle text-danger me-2"></i>Kein PPD</li>
-                                                <li class="mb-2"><i class="bi bi-x-circle text-danger me-2"></i>Kein Resorcinol</li>
-                                                <li class="mb-2"><i class="bi bi-x-circle text-danger me-2"></i>Keine Parabene</li>
+                                                <li class="mb-2 d-flex align-items-center">
+                                                    <i class="bi bi-x-circle text-danger me-2 flex-shrink-0"></i>
+                                                    <span>Kein PPD</span>
+                                                </li>
+                                                <li class="mb-2 d-flex align-items-center">
+                                                    <i class="bi bi-x-circle text-danger me-2 flex-shrink-0"></i>
+                                                    <span>Kein Resorcinol</span>
+                                                </li>
+                                                <li class="mb-2 d-flex align-items-center">
+                                                    <i class="bi bi-x-circle text-danger me-2 flex-shrink-0"></i>
+                                                    <span>Keine Parabene</span>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -338,6 +364,21 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RICA Herstellerseite Link -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <p class="mb-3">Erfahren Sie mehr über RICA:</p>
+                    <a href="https://ricahaircare.com/en/" target="_blank" class="btn btn-outline-primary btn-lg" style="border-color: #9A0708; color: #9A0708; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#9A0708'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#9A0708';">
+                        <i class="bi bi-globe me-2"></i>Zur RICA Website
+                        <i class="bi bi-box-arrow-up-right ms-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
