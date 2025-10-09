@@ -90,6 +90,21 @@ body {
     background-color: rgba(107, 46, 46, 0.9) !important;
 }
 
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .navbar {
+        background-color: rgba(107, 46, 46, 1) !important; /* Keine Transparenz auf Mobile */
+    }
+
+    .navbar-brand::after {
+        content: "Mucke & Mähne";
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
