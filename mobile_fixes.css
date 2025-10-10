@@ -35,7 +35,7 @@
     }
 
     .hero img {
-        max-width: 65% !important;
+        max-width: 45% !important;
     }
 
     .hero h1 {
@@ -105,7 +105,7 @@
     }
 
     .hero img {
-        max-width: 60% !important;
+        max-width: 40% !important;
     }
 
     .hero h1 {
@@ -130,7 +130,59 @@
     }
 }
 
-/* Tablet-spezifische Optimierungen */
+/* Tablet-Landscape spezifische Optimierungen */
+@media screen and (min-width: 768px) and (max-width: 1199.98px) and (orientation: landscape) {
+    /* Hamburger-Menü ausblenden bei Tablet-Landscape */
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    /* Navigation direkt anzeigen */
+    #navbarNav {
+        display: block !important;
+    }
+
+    .navbar {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 500 !important;
+    }
+
+    .hero img {
+        max-width: 45% !important;
+    }
+
+    .hero h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 600 !important;
+    }
+
+    .hero p {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    .hero .alert {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    .hero .btn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 500 !important;
+    }
+}
+
+/* Tablet-spezifische Optimierungen (Portrait) */
 @media screen and (min-width: 768px) and (max-width: 1199.98px) {
     .navbar-toggler {
         display: block !important;
