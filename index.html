@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUCKE & MÄHNE - Ihr Friseursalon</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>MUCKE & MÄHNE - Ihr Friseursalon | Damen- & Herrenfriseur</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="MUCKE & MÄHNE - Ihr professioneller Friseursalon in Taunusstein. Damen- und Herrenfriseur mit RICA Produkten, Chromoplus und Gorepair. Haarschnitt, Styling und Haarpflege vom Profi.">
+    <meta name="keywords" content="Friseur in Taunusstein, Friseur Taunusstein, Frisör Taunusstein, Mucke, Haare schneiden Taunusstein, Friseursalon Taunusstein, Damenfriseur Taunusstein, Herrenfriseur Taunusstein, professionelle Haarpflege Taunusstein, RICA Produkte Salon, Chromoplus Behandlung, Gorepair Therapie, Naturica Bio Haarpflege, Haarfarbe Experte Taunusstein, Strähnen Spezialist, Haarstyling Profi, Salon für Damen und Herren, hochwertige Haarprodukte, Friseur Wiesbaden Umgebung, Haar Styling Taunusstein, moderne Haarschnitte, Balayage Taunusstein, Haarverlängerung, Kopfhautpflege">
+    <meta name="author" content="MUCKE & MÄHNE">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags für Social Media -->
+    <meta property="og:title" content="MUCKE & MÄHNE - Ihr Friseursalon">
+    <meta property="og:description" content="Professioneller Friseursalon für Damen und Herren. RICA Produkte, Chromoplus und Gorepair. Haarschnitt, Styling und Haarpflege vom Profi.">
+    <meta property="og:type" content="business.business">
+    <meta property="og:url" content="https://muckeundmaehne.de/">
+    <meta property="og:image" content="https://muckeundmaehne.de/Images/Logo_MM.png">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MUCKE & MÄHNE - Ihr Friseursalon">
+    <meta name="twitter:description" content="Professioneller Friseursalon für Damen und Herren mit RICA Produkten.">
+    <meta name="twitter:image" content="https://muckeundmaehne.de/Images/Logo_MM.png">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -28,7 +47,7 @@
                     <li class="nav-item"><a class="nav-link text-white" href="#philosophie" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Philosophie</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#products" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Unsere Produkte</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#contact" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Kontakt</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="RICAProducts.html" style="font-size: 1.32rem; padding: 0.7rem 1rem;">RICA Produkte</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="RICAProducts.html" style="font-size: 1.32rem; padding: 0.7rem 1rem;">RICA</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="impressum.html" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Impressum</a></li>
                 </ul>
             </div>
@@ -359,6 +378,72 @@
         <div class="container text-center">
             <p>&copy; 2025 MUCKE & MÄHNE. Alle Rechte vorbehalten.</p>
         </div>
-    </footer>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
+
+    <!-- Structured Data für lokalen Friseursalon -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HairSalon",
+        "name": "MUCKE & MÄHNE",
+        "description": "Professioneller Friseursalon für Damen und Herren in Taunusstein mit RICA Produkten, Chromoplus und Gorepair.",
+        "url": "https://muckeundmaehne.de/",
+        "logo": "https://muckeundmaehne.de/Images/Logo_MM.png",
+        "priceRange": "$$",
+        "servesCuisine": null,
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "50.1556",
+                "longitude": "8.1353"
+            },
+            "geoRadius": "15000"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Friseur Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Haarschnitt Damen"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Haarschnitt Herren"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Haarfarbe und Strähnen"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Haarstyling"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "RICA Produktbehandlung"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
