@@ -1,0 +1,155 @@
+/* Mobile Landscape (Querformat) Optimierungen */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .navbar {
+        min-height: 45px !important;
+        padding: 0.2rem 0 !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem !important;
+        padding: 0.3rem 0.5rem !important;
+    }
+
+    .hero {
+        padding-top: 60px !important;
+    }
+
+    .hero img {
+        max-width: 65% !important;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-top: -10px;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero .alert {
+        font-size: 0.9rem !important;
+        padding: 0.5rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .hero .btn {
+        margin-top: 1rem;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra kleine Geräte im Querformat */
+@media screen and (max-width: 575px) and (orientation: landscape) {
+    .navbar {
+        min-height: 40px !important;
+        padding: 0.1rem 0 !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.8rem !important;
+        padding: 0.2rem 0.4rem !important;
+    }
+
+    .hero {
+        padding-top: 50px !important;
+    }
+
+    .hero img {
+        max-width: 60% !important;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+        margin-top: -5px;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Tablet-spezifische Optimierungen */
+@media screen and (min-width: 768px) and (max-width: 1199.98px) {
+    .navbar-toggler {
+        display: block !important;
+    }
+
+    #navbarNav {
+        display: none !important;
+    }
+
+    #navbarNav.show {
+        display: block !important;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1.1rem !important;
+        padding: 0.6rem 1rem !important;
+    }
+}
+
+/* iPad und Touch-Tablets */
+@media (hover: none) and (pointer: coarse) and (min-width: 768px) {
+    .navbar-toggler {
+        display: block !important;
+    }
+
+    #navbarNav:not(.show) {
+        display: none !important;
+    }
+
+    #navbarNav.show {
+        display: block !important;
+    }
+
+    .navbar .container {
+        position: relative;
+    }
+
+    .navbar .container::after {
+        content: "Mucke & Mähne";
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 1;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar-toggler[aria-expanded="true"] + .navbar-collapse .container::after,
+    .navbar-collapse.show .container::after,
+    .navbar-collapse.collapsing .container::after {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    body:has(.navbar-toggler[aria-expanded="true"]) .navbar .container::after {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Button Touch-Optimierung für alle Geräte */
+.hero .btn {
+    min-height: 44px !important;
+    min-width: 120px !important;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .hero .btn {
+        min-height: 48px !important;
+        min-width: 140px !important;
+        font-size: 1rem !important;
+        padding: 14px 24px !important;
+    }
+}
