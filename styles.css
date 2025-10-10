@@ -134,20 +134,138 @@ body {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Mobile Optimierungen für verschiedene Bildschirmgrößen */
+
+/* Extra kleine Geräte (Phones, 576px und kleiner) */
+@media (max-width: 575.98px) {
+    .hero h1 {
+        font-size: 2rem;
+        margin-top: -15px;
+        margin-bottom: 1rem;
+    }
+
+    .hero img {
+        max-width: 85% !important;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero .btn {
+        margin-top: 1.5rem;
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+
+    .hero .alert {
+        font-size: 100% !important;
+        max-width: 95% !important;
+        margin: 0 auto 1rem auto !important;
+        padding: 0.75rem !important;
+    }
+
+    .team-member img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .team-member h4 {
+        font-size: 1.2rem;
+    }
+
+    .team-member p {
+        font-size: 0.9rem;
+    }
+
+    /* Container Padding für sehr kleine Bildschirme */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Navigation Schriftgröße */
+    .navbar-nav .nav-link {
+        font-size: 1.1rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+}
+
+/* Kleine Geräte (Landscape Phones, 576px bis 767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .hero h1 {
+        font-size: 2.2rem;
+        margin-top: -18px;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero img {
+        max-width: 75% !important;
+    }
+
+    .hero .btn {
+        margin-top: 1.8rem;
+        padding: 18px 28px;
+    }
+
+    .hero .alert {
+        max-width: 450px !important;
+    }
+
+    .team-member img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* Standard Mobile (768px bis 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
     .hero h1 {
         font-size: 2.5rem;
-        margin-top: -20px; /* "Willkommen bei" höher setzen */
+        margin-top: -20px;
         margin-bottom: 1.5rem;
     }
 
     .hero img {
-        max-width: 70% !important; /* Logo um 10% vergrößern (von 60% auf 70%) */
+        max-width: 70% !important;
     }
 
     .hero .btn {
-        margin-top: 2rem; /* Button "Jetzt Termin vereinbaren" tiefer setzen */
+        margin-top: 2rem;
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Tablets (992px bis 1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero img {
+        max-width: 65%;
+    }
+}
+
+/* Fallback für sehr alte Breakpoint-Syntax */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-top: -20px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero img {
+        max-width: 70% !important;
+    }
+
+    .hero .btn {
+        margin-top: 2rem;
     }
 
     .team-member img {

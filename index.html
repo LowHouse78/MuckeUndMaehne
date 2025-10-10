@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>MUCKE & MÄHNE - Ihr Friseursalon | Damen- & Herrenfriseur</title>
 
     <!-- SEO Meta Tags -->
@@ -445,5 +445,27 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Auto-close mobile menu on link click -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Auto-Close Funktionalität
+            const navbarCollapse = document.getElementById('navbarNav');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+            navLinks.forEach(function(navLink) {
+                navLink.addEventListener('click', function() {
+                    // Prüfen ob das Menü geöffnet ist (nur mobile)
+                    if (navbarCollapse.classList.contains('show')) {
+                        // Bootstrap Collapse schließen
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                            toggle: false
+                        });
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
