@@ -1,17 +1,37 @@
 /* Mobile Landscape (Querformat) Optimierungen */
 @media screen and (max-width: 768px) and (orientation: landscape) {
+    /* Hamburger-Menü ausblenden im Landscape Modus */
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    /* Navigation direkt anzeigen */
+    #navbarNav {
+        display: block !important;
+    }
+
     .navbar {
         min-height: 45px !important;
         padding: 0.2rem 0 !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        justify-content: center !important;
+        width: 100% !important;
     }
 
     .navbar-nav .nav-link {
         font-size: 0.9rem !important;
-        padding: 0.3rem 0.5rem !important;
+        padding: 0.3rem 0.8rem !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 500 !important;
     }
 
     .hero {
         padding-top: 60px !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
 
     .hero img {
@@ -22,40 +42,66 @@
         font-size: 2rem;
         margin-top: -10px;
         margin-bottom: 1rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 600 !important;
     }
 
     .hero p {
         font-size: 1rem;
         margin-bottom: 0.8rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
 
     .hero .alert {
         font-size: 0.9rem !important;
         padding: 0.5rem !important;
         margin-bottom: 0.8rem !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
 
     .hero .btn {
         margin-top: 1rem;
         padding: 12px 20px;
         font-size: 0.9rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 500 !important;
     }
 }
 
 /* Extra kleine Geräte im Querformat */
 @media screen and (max-width: 575px) and (orientation: landscape) {
+    /* Hamburger-Menü auch hier ausblenden */
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    /* Navigation direkt anzeigen */
+    #navbarNav {
+        display: block !important;
+    }
+
     .navbar {
         min-height: 40px !important;
         padding: 0.1rem 0 !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        justify-content: center !important;
+        width: 100% !important;
     }
 
     .navbar-nav .nav-link {
         font-size: 0.8rem !important;
-        padding: 0.2rem 0.4rem !important;
+        padding: 0.2rem 0.6rem !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 500 !important;
     }
 
     .hero {
         padding-top: 50px !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
 
     .hero img {
@@ -66,6 +112,21 @@
         font-size: 1.6rem;
         margin-top: -5px;
         margin-bottom: 0.5rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 600 !important;
+    }
+
+    .hero p {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    .hero .alert {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    .hero .btn {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+        font-weight: 500 !important;
     }
 }
 
