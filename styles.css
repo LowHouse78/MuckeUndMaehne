@@ -93,7 +93,7 @@ body {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .navbar {
-        background-color: rgba(107, 46, 46, 1) !important; /* Keine Transparenz auf Mobile */
+        background-color: #6B2E2E !important; /* Exakt gleiche Farbe wie die roten Buttons */
     }
 
     /* Container für zentrierten Text */
@@ -114,19 +114,23 @@ body {
         white-space: nowrap;
         pointer-events: none;
         z-index: 1;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        opacity: 1;
+        visibility: visible;
     }
 
-    /* Text verstecken wenn Menü aufgeklappt ist */
-    .navbar-toggler[aria-expanded="true"] ~ .navbar-collapse ~ * .container::after,
-    .navbar-collapse.show ~ * .container::after {
+    /* Text komplett verstecken wenn Menü aufgeklappt ist */
+    .navbar-toggler[aria-expanded="true"] + .navbar-collapse .container::after,
+    .navbar-collapse.show .container::after,
+    .navbar-collapse.collapsing .container::after {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    /* Fallback: Text über body class verstecken */
+    body:has(.navbar-toggler[aria-expanded="true"]) .navbar .container::after {
         opacity: 0;
         visibility: hidden;
-    }
-
-    /* Direkter Ansatz über Attribut-Selektor */
-    .navbar-toggler[aria-expanded="true"] + .navbar-collapse + * .container::after {
-        display: none;
     }
 }
 
