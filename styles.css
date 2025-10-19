@@ -1,4 +1,8 @@
 /* Global Styles */
+html {
+    scroll-padding-top: 40px; /* Kompensiert die fixed Navigation */
+}
+
 body {
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -87,13 +91,13 @@ body {
 
 /* Navigation */
 .navbar {
-    background-color: rgba(107, 46, 46, 0.9) !important;
+    background-color: rgba(137, 135, 108, 0.9) !important;
 }
 
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
     .navbar {
-        background-color: #6B2E2E !important; /* Exakt gleiche Farbe wie die roten Buttons */
+        background-color: #89876c!important; /* Exakt gleiche Farbe wie die roten Buttons */
     }
 
     /* Container für zentrierten Text */

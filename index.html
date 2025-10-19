@@ -30,7 +30,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="min-height: 64px; background-color: rgba(107, 46, 46, 0.9);">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="min-height: 64px; background-color: var(--primary-nav-color);">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -47,9 +47,8 @@
                     <li class="nav-item"><a class="nav-link text-white" href="#services" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Leistungen</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#philosophie" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Philosophie</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="#products" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Unsere Produkte</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#contact" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Kontakt</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#contact" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Kontakt & Anfahrt</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="RICAProducts.html" style="font-size: 1.32rem; padding: 0.7rem 1rem;">RICA</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="impressum.html" style="font-size: 1.32rem; padding: 0.7rem 1rem;">Impressum</a></li>
                 </ul>
             </div>
         </div>
@@ -61,10 +60,13 @@
             <h1>Willkommen bei</h1>
             <img src="Images/Logo_MM.png" alt="MUCKE & MÄHNE" class="img-fluid mb-4" style="max-width:60%;">
             <p>Ihr Friseursalon für den perfekten Look</p>
-            <div class="alert alert-info p-4 mb-3 fw-bold text-center" style="background: rgba(255,255,255,0.9); border: 2px solid #9A0708; border-radius: 15px; font-size: 110%; color: #9A0708; max-width: 400px; margin: 0 auto 1rem auto;">
+            <div class="alert alert-info p-4 mb-3 fw-bold text-center" style="background: rgba(255,255,255,0.9); border: 2px solid #a70c0c; border-radius: 15px; font-size: 110%; color: #a70c0c; max-width: 400px; margin: 0 auto 1rem auto;">
                 <i class="bi bi-scissors me-2"></i>Wir eröffnen Januar 2026<i class="bi bi-scissors ms-2"></i>
             </div>
-            <a href="#contact" class="btn btn-primary" style="background-color: #6B2E2E  !important; border-width: 2px; border-color: #6B2E2E!important; padding: 20px 30px;">Jetzt Termin vereinbaren</a>
+            <a href="#contact" class="btn btn-primary" style="background-color: #89876c !important; border-width: 2px; border-color: #89876c!important; padding: 20px 30px; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='white'; this.style.color='#89876c';" onmouseout="this.style.backgroundColor='#89876c'; this.style.color='white';">
+                <i class="bi bi-calendar-check me-2"></i>Jetzt Termin vereinbaren
+            </a>
+
         </div>
     </section>
 
@@ -75,23 +77,77 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="team-member">
-                        <img src="Images/Tina_kl.jpg" alt="Tina Mucke" class="img-fluid rounded-circle mb-3" style="width: 300px; height: 300px; object-fit: cover;">
+                        <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('tina')">
+                            <img src="Images/Tina_kl.jpg" alt="Tina Mucke" class="img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; object-fit: cover; transition: all 0.3s ease;">
+                            <div class="photo-overlay" style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; background: rgba(111, 110, 87, 0.8); opacity: 0; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                <span><i class="bi bi-info-circle me-2"></i>Mehr erfahren</span>
+                            </div>
+                        </div>
                         <h3>Tina Mucke</h3>
-                        <p>Meisterfriseurin</p>
+                        <p>Leidenschaftliche Meisterfriseurin</p>
                         <p>Spezialisiert auf Damenhaarschnitte, Farben und Strähnen jeder Art und Naturlocken</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="team-member">
-                        <img src="Images/Nils_kl.jpg" alt="Nils Mucke" class="img-fluid rounded-circle mb-3" style="width: 300px; height: 300px; object-fit: cover;">
+                        <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('nils')">
+                            <img src="Images/Nils_kl.jpg" alt="Nils Mucke" class="img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; object-fit: cover; transition: all 0.3s ease;">
+                            <div class="photo-overlay" style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; background: rgba(111, 110, 87, 0.8); opacity: 0; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                <span><i class="bi bi-info-circle me-2"></i>Mehr erfahren</span>
+                            </div>
+                        </div>
                         <h3>Nils Mucke</h3>
-                        <p>Leidenschaftlicher Friseur</p>
+                        <p>Leidenschaftlicher Friseurgeselle</p>
                         <p>Experte für Herrenhaarschnitte und Bartpflege</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Team Modal -->
+    <div id="teamModal" class="modal fade" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 20px; border: none; overflow: hidden;">
+                <div class="modal-header" style="background: linear-gradient(135deg, #6f6e57 0%, #89876c 100%); color: white; border: none;">
+                    <h5 class="modal-title" id="teamModalLabel">
+                        <i class="bi bi-person-circle me-2"></i>
+                        <span id="modalMemberName">Team Member</span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" style="background-color: #f8f9fa;">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center mb-4 mb-md-0">
+                            <img id="modalMemberPhoto" src="" alt="" class="img-fluid rounded-circle shadow-lg" style="width: 200px; height: 200px; object-fit: cover; border: 4px solid #6f6e57;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="member-details">
+                                <h4 id="modalMemberTitle" class="mb-3" style="color: #6f6e57;"></h4>
+                                <div class="info-section mb-3">
+                                    <h6 class="text-muted mb-2"><i class="bi bi-briefcase me-2"></i>Erfahrung & Spezialisierung</h6>
+                                    <p id="modalMemberExperience" class="mb-0"></p>
+                                </div>
+                                <div class="info-section mb-3">
+                                    <h6 class="text-muted mb-2"><i class="bi bi-heart me-2"></i>Persönliches</h6>
+                                    <p id="modalMemberPersonal" class="mb-0"></p>
+                                </div>
+                                <div class="info-section">
+                                    <h6 class="text-muted mb-2"><i class="bi bi-star me-2"></i>Lieblings-Services</h6>
+                                    <div id="modalMemberServices"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: white; border: none;">
+                    <button type="button" class="btn btn-outline-primary" style="border-color: #6f6e57; color: #6f6e57; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#6f6e57'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6f6e57';" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle me-2"></i>Schließen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Services Section -->
     <section id="services" class="py-5 bg-light">
@@ -153,7 +209,7 @@
                 <div class="col-12 col-md-6 d-flex mb-4 mb-md-0">
                     <div class="card p-4 shadow-sm d-flex flex-column justify-content-center w-100" style="min-height: 250px;">
                         <div class="card-body">
-                            <h4 class="mb-3" style="color: #9A0708;">RICA Haircare</h4>
+                            <h4 class="mb-3" style="color: #6f6e57;">RICA Haircare</h4>
                             <p class="lead">Bei uns im Salon setzen wir auf Rica Haircare – eine Marke, die für natürliche Pflege, nachhaltige Werte und professionelles Styling steht.</p>
                             <p>Mit veganen Formeln, ohne belastende Zusätze und mit sanften, hochwertigen Inhaltsstoffen sorgen die Produkte dafür, dass sich Ihr Haar gesund, glänzend und einfach gut anfühlt.</p>
                         </div>
@@ -176,16 +232,16 @@
                     <!-- Dritte Produktkarte (unten) -->
                     <div class="card shadow-sm" style="min-height: 80px; display: flex; align-items: center; justify-content: center;">
                         <div style="padding: 15px;">
-                            <h4 class="mb-1" style="color: #85AA99;">Professionelle Haarpflege</h4>
-                            <h5 class="mb-0" style="color: #85AA99;">aus 96% natürlichen Inhaltsstoffen.</h5>
+                            <h4 class="mb-1" style="color: #6f6e57;">Professionelle Haarpflege</h4>
+                            <h5 class="mb-0" style="color: #6f6e57;">aus 96% natürlichen Inhaltsstoffen.</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-5 d-flex">
                     <div class="card p-4 shadow-sm d-flex flex-column justify-content-center w-100" style="min-height: 300px;">
                         <div class="card-body">
-                            <h4 class="mb-1" style="color: #85AA99;">100 % vegan</h4>
-                            <h4 class="mb-3" style="color: #85AA99;">Schönheit aus der Natur</h4>
+                            <h4 class="mb-1" style="color: #6f6e57;">100 % vegan</h4>
+                            <h4 class="mb-3" style="color: #6f6e57;">Schönheit aus der Natur</h4>
                             <p class="lead">Rica's Produktlinie "NATURICA" ist mehr als Kosmetik – sie sind ein Stück mediterranes Lebensgefühl. Mit natürlichen Zutaten aus Sizilien verwöhnen wir Ihr Haar und schenken ihm neue Kraft und Glanz.</p>
                             <p>Ob trocken, coloriert oder empfindlich – die sanften Rezepturen passen sich jedem Haar- und Hauttyp an. Reich an mediterranen Wirkstoffen nähren, befeuchten und schützen sie Ihr Haar und machen es stark und strahlend schön.</p>
                             <p>Damit Ihre Haarfarbe ihre Leuchtkraft lange behält, sind alle Produkte farbschonend formuliert – für langanhaltende Schönheit mit gutem Gewissen.</p>
@@ -200,8 +256,8 @@
                     <!-- Text (links) -->
                     <div class="card p-4 shadow-sm" style="min-height: 200px;">
                         <div class="card-body">
-                            <h4 class="mb-1" style="color: #9A0708;">Chromoplus</h4>
-                            <h4 class="mb-3" style="color: #9A0708;">Strahlende Farben mit gutem Gewissen</h4>
+                            <h4 class="mb-1" style="color: #6f6e57;">Chromoplus</h4>
+                            <h4 class="mb-3" style="color: #6f6e57;">Strahlende Farben mit gutem Gewissen</h4>
                             <p class="lead">Mit Ricas's Chromoplus bieten wir Ihnen eine Haarfarbe, die nicht nur wunderschöne Ergebnisse zaubert, sondern auch auf Sie und die Natur Rücksicht nimmt. Die Farben sind 100 % vegan, frei von belastenden Stoffen wie Parabenen oder Sulfaten und dermatologisch getestet – für ein angenehmes und sicheres Farberlebnis.</p>
                             <p>Dank wertvoller Inhaltsstoffe wie Marula-Öl, Quinoa und mediterranen Pflanzenextrakten wird Ihr Haar während der Coloration gepflegt, geschützt und gestärkt. So bleibt es gesund, glänzend und voller Lebenskraft.</p>
                             <p class="d-none d-md-block">Ob sanfte Tönung oder intensive Veränderung – mit über 100 Nuancen finden wir gemeinsam den perfekten Farbton, der Ihre Persönlichkeit unterstreicht. Und das Beste: die Rezeptur schützt Ihre Haarfarbe, sodass sie lange strahlend schön bleibt.</p>
@@ -216,7 +272,7 @@
                             <img src="Images/chromoplus2.png" alt="Chromoplus Haarfarben" class="img-fluid rounded shadow" style="width: 100%; height: auto; object-fit: contain; max-height: 250px;">
                         </div>
                         <div class="text-center">
-                            <a href="RICAProducts.html" class="btn btn-outline-primary btn-lg" style="border-color: #9A0708; color: #9A0708; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#9A0708'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#9A0708';">
+                            <a href="RICAProducts.html" class="btn btn-outline-primary btn-lg" style="border-color: #6f6e57; color: #6f6e57; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#6f6e57'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6f6e57';">
                                 <i class="bi bi-arrow-right-circle me-2"></i>Mehr zu RICA
                             </a>
                         </div>
@@ -232,11 +288,11 @@
                             <div class="text-center mb-3">
                                 <!-- Logo Platzhalter -->
                                 <img src="Images/Ricalogo.png" alt="RICA Logo" class="img-fluid" style="max-height: 60px; background-color: #f8f9fa; border: 2px solid black; padding: 8px; border-radius: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <div style="display: none; background-color: #f8f9fa; border: 2px solid black; padding: 15px; border-radius: 8px; color: #9A0708; font-weight: bold; font-size: 0.9em;">
+                                <div style="display: none; background-color: #f8f9fa; border: 2px solid black; padding: 15px; border-radius: 8px; color: #6f6e57; font-weight: bold; font-size: 0.9em;">
 
                                 </div>
                             </div>
-                            <h4 class="mb-3" style="color: #85AA99;">Reine Inhaltsstoffe für gesundes Haar</h4>
+                            <h4 class="mb-3" style="color: #6f6e57;">Reine Inhaltsstoffe für gesundes Haar</h4>
                             <p class="lead">RICA hat alle unnötigen Inhaltsstoffe aus den Produkten entfernt und transparente Formeln entwickelt, die weder Ihnen noch der Umwelt schaden.</p>
                             <p class="d-none d-md-block">RICA hebt nur das hervor, was wirklich in den Produkten steckt – und zeigt Ihnen offen und selbstbewusst, welche Inhaltsstoffe Sie darin nicht finden:</p>
 
@@ -253,7 +309,7 @@
                             </div>
 
                            <div class="card-body p-4">
-                            <h4 class="mb-4 text-center" style="color: #9A0708;">Was Sie NICHT in RICA Produkten finden:</h4>
+                            <h4 class="mb-4 text-center" style="color: #6f6e57;">Was Sie NICHT in RICA Produkten finden:</h4>
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -357,6 +413,33 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Anfahrt Section -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card p-4 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="mb-4"><i class="bi bi-geo-alt me-2"></i>So finden Sie zu uns</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mb-3" style="color: #6f6e57;">Mit dem Auto</h5>
+                                    <p>Direkt vor dem Salon sowie in der Tiefgarage stehen Ihnen Parkplätze zur Verfügung. Bitte nutzen Sie in der Tiefgarage nur die für Mucke & Mähne gekennzeichneten Plätze. Weitere Parkmöglichkeiten bietet die städtische Tiefgarage gegenüber.</p>
+                                    <h5 class="mb-3 mt-4" style="color: #6f6e57;">Öffentliche Verkehrsmittel</h5>
+                                    <p>Der Hahner Busbahnhof liegt nur wenige Gehminuten von unserem Salon entfernt.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mb-3" style="color: #6f6e57;">Orientierungshilfen</h5>
+                                    <p>Unser Salon befindet sich im Erdgeschoss mit gut sichtbarer Beschilderung. Sie erkennen uns an unserem MUCKE & MÄHNE Logo und den großen Schaufenstern.</p>
+
+                                    <div class="alert" style="background-color: #f8f9fa; border-left: 4px solid #6f6e57; border-radius: 8px;">
+                                        <small><i class="bi bi-info-circle me-2"></i><strong>Tipp:</strong> Bei Problemen beim Finden rufen Sie uns gerne an oder schreiben eine WhatsApp - wir helfen Ihnen gerne weiter!</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -366,17 +449,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
                     <h4 class="mb-3">Rechtliche Hinweise</h4>
-                    <p class="mb-4">Für rechtliche Informationen und Datenschutzbestimmungen besuchen Sie unser Impressum.</p>
-                    <a href="impressum.html" class="btn btn-outline-primary btn-lg" style="border-color: #9A0708; color: #9A0708; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#9A0708'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#9A0708';">
-                        <i class="bi bi-file-text me-2"></i>Zum Impressum
-                    </a>
+                    <p class="mb-4">Für rechtliche Informationen und Datenschutzbestimmungen besuchen Sie unser <a href="impressum.html" class="text-decoration-none" style="color: #6f6e57;">Impressum</a>.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-3 bg-dark text-white">
-        <div class="container text-center">
+    <footer class="py-3 text-white" style="background-color: #89876c; border-top: 1px solid #89876c; margin-top: 20px">
+        <div class="container text-center" >
             <p>&copy; 2025 MUCKE & MÄHNE. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
@@ -464,6 +544,84 @@
                         });
                         bsCollapse.hide();
                     }
+                });
+            });
+        });
+
+        // Team Modal Functionality
+        const teamData = {
+            tina: {
+                name: "Tina Mucke",
+                title: "Friseurmeisterin",
+                photo: "Images/Tina_kl.jpg",
+                experience: "Ich bin Friseurin aus Leidenschaft und seit 2005 Friseurmeisterin. Ich bin auf das Damenfach spezialisiert - besonders auf Schnitt, Farbe und Strähnen in all ihren Facetten. Egal ob natürlich, klassisch, oder kreativ.",
+                personal: "An meinem Beruf liebe ich es, meine Kundinnen individuell zu beraten und gemeinsam mit ihnen ihren ganz persönlichen Look zu kreieren. Und wenn sie am Ende mit einem Lächeln aus dem Salon gehen, ist das für mich das Schönste an meiner Arbeit. Endlich kann ich meinen Traum vom eigenen Friseursalon mit meinem Mann verwirklichen! Wenn ich nicht im Salon bin, liebe ich es, mit meiner Familie zu reisen, gutes Essen zu genießen oder in unserem Garten alles Mögliche anzubauen. Ich freue mich darauf, dich kennenzulernen!",
+                services: [
+                    "Damenhaarschnitte & Styling",
+                    "Komplexe Colorationen & Balayage",
+                    "Naturlocken-Spezialistin",
+                    "RICA Chromoplus Behandlungen",
+                    "Hochsteckfrisuren & Event-Styling"
+                ]
+            },
+            nils: {
+                name: "Nils Mucke",
+                title: "Friseurgeselle",
+                photo: "Images/Nils_kl.jpg",
+                experience: "Seit 2015 lebe ich meinen Traum als Herrenfriseur. Ob klassisch und elegant oder modern und trendbewusst - ich liebe es, individuelle Styles zu kreieren, die perfekt zu dir passen. Auch Dauerwellen für Herren gehören zu meinen Leistungen und sorgen für abwechslungsreiche und stylische Looks. Im Damenfach bediene ich gerne die Kurzhaarkundinnen.",
+                personal: "Schon als kleiner Junge stand für mich fest: Ich will Friseur werden! Und jetzt wird's endlich Wirklichkeit - ab Januar 2026 eröffne ich zusammen mit meiner Frau Tina unseren eigenen Salon Mucke & Mähne in Taunusstein-Hahn. Wenn ich nicht gerade Haare schneide, verbringe ich am liebsten Zeit mit meiner Familie oder bin beim Laufen unterwegs - das gibt mir Energie und neue Ideen. Egal ob du einen zeitlosen Klassiker oder einen modernen Look willst - bei mir bekommst du deinen ganz persönlichen Style mit viel Leidenschaft, Präzision und Herzblut. Ich freue mich auf euch!",
+                services: [
+                    "Herrenhaarschnitte alle Längen",
+                    "Klassische Bartpflege & Rasur",
+                    "Fade-Cuts & moderne Styles",
+                    "RICA Opuntia Oil for Men",
+                    "Traditionelle Barbier-Techniken"
+                ]
+            }
+        };
+
+        function openTeamModal(memberKey) {
+            const member = teamData[memberKey];
+            if (!member) return;
+
+            // Fill modal content
+            document.getElementById('modalMemberName').textContent = member.name;
+            document.getElementById('modalMemberTitle').textContent = member.title;
+            document.getElementById('modalMemberPhoto').src = member.photo;
+            document.getElementById('modalMemberPhoto').alt = member.name;
+            document.getElementById('modalMemberExperience').textContent = member.experience;
+            document.getElementById('modalMemberPersonal').textContent = member.personal;
+
+            // Fill services
+            const servicesContainer = document.getElementById('modalMemberServices');
+            servicesContainer.innerHTML = '';
+            member.services.forEach(service => {
+                const badge = document.createElement('span');
+                badge.className = 'badge me-2 mb-2';
+                badge.style.backgroundColor = '#6f6e57';
+                badge.style.color = 'white';
+                badge.textContent = service;
+                servicesContainer.appendChild(badge);
+            });
+
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('teamModal'));
+            modal.show();
+        }
+
+        // Add hover effects to team photos
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoContainers = document.querySelectorAll('.team-photo-container');
+
+            photoContainers.forEach(container => {
+                const overlay = container.querySelector('.photo-overlay');
+
+                container.addEventListener('mouseenter', function() {
+                    overlay.style.opacity = '1';
+                });
+
+                container.addEventListener('mouseleave', function() {
+                    overlay.style.opacity = '0';
                 });
             });
         });
