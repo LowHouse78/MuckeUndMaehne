@@ -353,3 +353,66 @@
         padding: 14px 24px !important;
     }
 }
+
+/* iPad Portrait Optimierungen für Impressum und andere Seiten */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    /* Hero-Sektion Anpassungen */
+    .hero-small .display-4 {
+        font-size: 2.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .hero-small .lead {
+        font-size: 1.1rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .hero-small {
+        padding: 3rem 0 !important;
+        margin-top: 70px !important;
+    }
+
+    /* Card-Layout für Impressum */
+    .card {
+        padding: 2rem !important;
+        margin-bottom: 2rem !important;
+        border-radius: 12px !important;
+    }
+
+    .card h4 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .card h6 {
+        font-size: 1.1rem !important;
+        margin-bottom: 1rem !important;
+        margin-top: 1.5rem !important;
+    }
+
+    .card p, .card address {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Container Anpassungen */
+    .container {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
+    /* Navigation Logo Anpassung für iPad Portrait */
+    .navbar-brand img {
+        height: 45px !important;
+    }
+
+    .navbar {
+        min-height: 60px !important;
+    }
+
+    /* Text-Spacing für bessere Lesbarkeit */
+    .col-md-8 {
+        max-width: 90% !important;
+    }
+}
