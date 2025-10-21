@@ -54,6 +54,28 @@
         </div>
     </nav>
 
+    <!-- Job Banner with Scrolling Text -->
+    <div class="job-banner" style="background: linear-gradient(45deg, #a70c0c, #a70c0c, #a70c0c, #a70c0c, #a70c0c); padding: 10px 0; overflow: hidden; position: relative; border-bottom: 3px solid #fff; z-index: 1000; cursor: pointer;" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'}); setTimeout(() => openTeamModal('jobposting'), 800);">
+        <div class="scrolling-text" style="white-space: nowrap; animation: scroll-left 20s linear infinite; color: white; font-weight: bold; font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+            <span style="margin-right: 100px;">WIR STELLEN EIN - FRISEUR/FRISEURIN GESUCHT!</span>
+            <span style="margin-right: 100px;">BEWIRB DICH JETZT!</span>
+            <span style="margin-right: 100px;">Eröffnung Januar 2026</span>
+            <span style="margin-right: 100px;">WIR STELLEN EIN - FRISEUR/FRISEURIN GESUCHT!</span>
+            <span style="margin-right: 100px;">BEWIRB DICH JETZT!</span>
+            <span style="margin-right: 100px;">Eröffnung Januar 2026</span>
+            <span style="margin-right: 100px;">WIR STELLEN EIN - FRISEUR/FRISEURIN GESUCHT!</span>
+            <span style="margin-right: 100px;">BEWIRB DICH JETZT!</span>
+            <span style="margin-right: 100px;">Eröffnung Januar 2026</span>
+            <span style="margin-right: 100px;">WIR STELLEN EIN - FRISEUR/FRISEURIN GESUCHT!</span>
+            <span style="margin-right: 100px;">BEWIRB DICH JETZT!</span>
+            <span style="margin-right: 100px;">Eröffnung Januar 2026</span>
+        </div>
+    </div>
+            <span style="margin-right: 100px;"></span>
+            <span style="margin-right: 100px;"></span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
@@ -74,8 +96,8 @@
     <section id="team" class="py-5">
         <div class="container">
             <h2 class="text-center mb-5">Unser Team</h2>
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
                     <div class="team-member">
                         <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('tina')">
                             <img src="Images/Tina_kl.jpg" alt="Tina Mucke" class="img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; object-fit: cover; transition: all 0.3s ease;">
@@ -88,7 +110,7 @@
                         <p>Spezialisiert auf Damenhaarschnitte, Farben und Strähnen jeder Art und Naturlocken</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4 mb-4">
                     <div class="team-member">
                         <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('nils')">
                             <img src="Images/Nils_kl.jpg" alt="Nils Mucke" class="img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; object-fit: cover; transition: all 0.3s ease;">
@@ -99,6 +121,24 @@
                         <h3>Nils Mucke</h3>
                         <p>Leidenschaftlicher Friseurgeselle</p>
                         <p>Experte für Herrenhaarschnitte und Bartpflege</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="team-member">
+                        <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('jobposting')">
+                            <div class="job-posting-image img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; background: linear-gradient(135deg, #6f6e57 0%, #89876c 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; border: 3px solid #6f6e57; transition: all 0.3s ease; font-size: 1.2rem;">
+                                <div>
+                                    <i class="bi bi-person-plus" style="font-size: 3rem; margin-bottom: 10px; display: block;"></i>
+                                    <div style="font-size: 1.1rem; line-height: 1.2;">WIR SUCHEN<br>DICH!</div>
+                                </div>
+                            </div>
+                            <div class="photo-overlay" style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; background: rgba(111, 110, 87, 0.8); opacity: 0; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                <span><i class="bi bi-briefcase me-2"></i>Mehr erfahren</span>
+                            </div>
+                        </div>
+                        <h3>Werde Teil unseres Teams!</h3>
+                        <p>Leidenschaftliche/r Friseur/in gesucht</p>
+                        <p>Starte deine Karriere bei Mucke & Mähne - wir freuen uns auf dich!</p>
                     </div>
                 </div>
             </div>
@@ -555,7 +595,7 @@
                 title: "Friseurmeisterin",
                 photo: "Images/Tina_kl.jpg",
                 experience: "Ich bin Friseurin aus Leidenschaft und seit 2005 Friseurmeisterin. Ich bin auf das Damenfach spezialisiert - besonders auf Schnitt, Farbe und Strähnen in all ihren Facetten. Egal ob natürlich, klassisch, oder kreativ.",
-                personal: "An meinem Beruf liebe ich es, meine Kundinnen individuell zu beraten und gemeinsam mit ihnen ihren ganz persönlichen Look zu kreieren. Und wenn sie am Ende mit einem Lächeln aus dem Salon gehen, ist das für mich das Schönste an meiner Arbeit. Endlich kann ich meinen Traum vom eigenen Friseursalon mit meinem Mann verwirklichen! Wenn ich nicht im Salon bin, liebe ich es, mit meiner Familie zu reisen, gutes Essen zu genießen oder in unserem Garten alles Mögliche anzubauen. Ich freue mich darauf, dich kennenzulernen!",
+                personal: "An meinem Beruf liebe ich es, meine Kundinnen individuell zu beraten und gemeinsam mit ihnen ihren ganz persönlichen Look zu kreieren. Und wenn sie am Ende mit einem Lächeln aus dem Salon gehen, ist das für mich das Schönste an meiner Arbeit. Endlich kann ich meinen Traum vom eigenen Friseursalon mit meinem Mann verwirklichen! Wenn ich nicht im Salon bin, liebe ich es, mit meiner Familie zu reisen, gutes Essen zu genießen oder in unserem Garten alles Mögliche anzubauen. Ich freue mich darauf, Sie kennenzulernen!",
                 services: [
                     "Damenhaarschnitte & Styling",
                     "Komplexe Colorationen & Balayage",
@@ -569,13 +609,30 @@
                 title: "Friseurgeselle",
                 photo: "Images/Nils_kl.jpg",
                 experience: "Seit 2015 lebe ich meinen Traum als Herrenfriseur. Ob klassisch und elegant oder modern und trendbewusst - ich liebe es, individuelle Styles zu kreieren, die perfekt zu dir passen. Auch Dauerwellen für Herren gehören zu meinen Leistungen und sorgen für abwechslungsreiche und stylische Looks. Im Damenfach bediene ich gerne die Kurzhaarkundinnen.",
-                personal: "Schon als kleiner Junge stand für mich fest: Ich will Friseur werden! Und jetzt wird's endlich Wirklichkeit - ab Januar 2026 eröffne ich zusammen mit meiner Frau Tina unseren eigenen Salon Mucke & Mähne in Taunusstein-Hahn. Wenn ich nicht gerade Haare schneide, verbringe ich am liebsten Zeit mit meiner Familie oder bin beim Laufen unterwegs - das gibt mir Energie und neue Ideen. Egal ob du einen zeitlosen Klassiker oder einen modernen Look willst - bei mir bekommst du deinen ganz persönlichen Style mit viel Leidenschaft, Präzision und Herzblut. Ich freue mich auf euch!",
+                personal: "Schon als kleiner Junge stand für mich fest: Ich will Friseur werden! Und jetzt wird's endlich Wirklichkeit - ab Januar 2026 eröffne ich zusammen mit meiner Frau Tina unseren eigenen Salon Mucke & Mähne in Taunusstein-Hahn. Wenn ich nicht gerade Haare schneide, verbringe ich am liebsten Zeit mit meiner Familie oder bin beim Laufen unterwegs - das gibt mir Energie und neue Ideen. Egal ob du einen zeitlosen Klassiker oder einen modernen Look willst - bei mir bekommst du deinen ganz persönlichen Style mit viel Leidenschaft, Präzision und Herzblut. Ich freue mich auf Sie!",
                 services: [
                     "Herrenhaarschnitte alle Längen",
                     "Klassische Bartpflege & Rasur",
                     "Fade-Cuts & moderne Styles",
                     "RICA Opuntia Oil for Men",
                     "Traditionelle Barbier-Techniken"
+                ]
+            },
+            jobposting: {
+                name: "Werde Teil unseres Teams!",
+                title: "Stellenanzeige - Friseur/in (m/w/d)",
+                photo: "", // Kein Bild, da wir ein CSS-Div verwenden
+                experience: "Wir suchen eine/n leidenschaftliche/n Friseur/in (m/w/d) für unser junges, dynamisches Team! Du bringst Kreativität, Teamgeist und Freude am Umgang mit Menschen mit? Dann bist du bei uns genau richtig! Egal ob Berufseinsteiger/in oder erfahrene Fachkraft - wir bieten dir die Möglichkeit, dich weiterzuentwickeln und deine Ideen einzubringen.",
+                personal: "Bei Mucke & Mähne erwartet dich ein familiäres Arbeitsumfeld, faire Bezahlung und die Chance, von Anfang an bei unserem Aufbau dabei zu sein. Wir legen Wert auf Work-Life-Balance, regelmäßige Weiterbildungen und einen respektvollen Umgang miteinander. Starte deine Karriere in unserem modernen Salon in Taunusstein-Hahn und werde Teil unserer Vision!",
+                services: [
+                    "Vollzeit oder Teilzeit möglich",
+                    "Faire Bezahlung + Provision",
+                    "Kostenlose Weiterbildungen",
+                    "Modernes Arbeitsumfeld",
+                    "Flexible Arbeitszeiten",
+                    "Urlaubsgeld & Weihnachtsgeld",
+                    "Familiäres Team",
+                    "Langfristige Perspektive"
                 ]
             }
         };
@@ -587,8 +644,29 @@
             // Fill modal content
             document.getElementById('modalMemberName').textContent = member.name;
             document.getElementById('modalMemberTitle').textContent = member.title;
-            document.getElementById('modalMemberPhoto').src = member.photo;
-            document.getElementById('modalMemberPhoto').alt = member.name;
+
+            // Handle photo for job posting
+            const photoElement = document.getElementById('modalMemberPhoto');
+            if (member.photo && member.photo !== "") {
+                photoElement.src = member.photo;
+                photoElement.alt = member.name;
+                photoElement.style.display = 'block';
+                photoElement.parentElement.style.display = 'block';
+            } else {
+                // For job posting - create custom div
+                photoElement.style.display = 'none';
+                photoElement.parentElement.innerHTML = `
+                    <div class="text-center">
+                        <div class="rounded-circle shadow-lg d-inline-flex align-items-center justify-content-center" style="width: 200px; height: 200px; background: linear-gradient(135deg, #6f6e57 0%, #89876c 100%); color: white; font-weight: bold; border: 4px solid #6f6e57;">
+                            <div>
+                                <i class="bi bi-person-plus" style="font-size: 2.5rem; margin-bottom: 8px; display: block;"></i>
+                                <div style="font-size: 0.9rem; line-height: 1.2;">WIR SUCHEN<br>DICH!</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
             document.getElementById('modalMemberExperience').textContent = member.experience;
             document.getElementById('modalMemberPersonal').textContent = member.personal;
 
