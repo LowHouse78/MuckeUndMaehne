@@ -30,7 +30,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="min-height: 64px; background-color: var(--primary-nav-color);">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="min-height: 64px; background-color: var(--primary-nav-color, #6f6e57) !important;">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@
 
     <!-- Job Banner with Scrolling Text -->
     <div class="job-banner" style="background: linear-gradient(45deg, #a70c0c, #a70c0c, #a70c0c, #a70c0c, #a70c0c); padding: 10px 0; overflow: hidden; position: relative; border-bottom: 3px solid #fff; z-index: 1000; cursor: pointer;" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'}); setTimeout(() => openTeamModal('jobposting'), 800);">
-        <div class="scrolling-text" style="white-space: nowrap; animation: scroll-left 20s linear infinite; color: white; font-weight: bold; font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+    <div class="scrolling-text" style="white-space: nowrap; animation: scroll-left 32s linear infinite; color: white; font-weight: bold; font-size: 1.1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
             <span style="margin-right: 100px;">WIR STELLEN EIN - FRISEUR/FRISEURIN GESUCHT!</span>
             <span style="margin-right: 100px;">BEWIRB DICH JETZT!</span>
             <span style="margin-right: 100px;">Eröffnung Januar 2026</span>
@@ -218,6 +218,86 @@
             </div>
         </div>
     </section>
+
+    <!-- Script: hide job-banner on scroll for desktop -->
+    <script>
+        (function() {
+            var banner = document.querySelector('.job-banner');
+            if (!banner) return;
+            var lastScrollY = window.scrollY;
+            var ticking = false;
+
+            function onScroll() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        var currentY = window.scrollY;
+                        // If scrolled down more than 100px and moving down, hide; else show
+                        if (currentY > 100 && currentY > lastScrollY) {
+                            banner.classList.add('hidden');
+                        } else {
+                            banner.classList.remove('hidden');
+                        }
+                        lastScrollY = currentY;
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
+    </script>
+    <script>
+        (function() {
+            document.querySelectorAll('.nav-link[href="#home"]').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Smooth scroll to absolute top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // Collapse navbar if open (Bootstrap)
+                    var navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        // Properly use Bootstrap Collapse API to hide and update state
+                        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+
+            // For other nav links (anchors), scroll slightly deeper than default
+            document.querySelectorAll('.nav-link[href^="#"]').forEach(function(link) {
+                var href = link.getAttribute('href');
+                if (!href || href === '#home') return; // skip Home
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var target = document.querySelector(href);
+                    if (!target) return;
+                    // Dynamically compute offsets: navbar height + banner height
+                    var navbar = document.querySelector('.navbar');
+                    var navbarHeight = navbar ? navbar.offsetHeight : 64;
+                    var banner = document.querySelector('.job-banner');
+                    var bannerHeight = (banner && getComputedStyle(banner).position === 'fixed') ? banner.offsetHeight : 0;
+                    var extra = -30; // additional deeper scroll in px
+                    var totalOffset = navbarHeight + bannerHeight + extra;
+                    var targetY = target.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+                        // Dynamically compute offsets: navbar height + banner height
+                        var navbar = document.querySelector('.navbar');
+                        var navbarHeight = navbar ? navbar.offsetHeight : 64;
+                        var banner = document.querySelector('.job-banner');
+                        var bannerHeight = (banner && getComputedStyle(banner).position === 'fixed') ? banner.offsetHeight : 0;
+                        var extra = -30; // additional deeper scroll in px
+                        var totalOffset = navbarHeight + bannerHeight + extra;
+                        var targetY = target.getBoundingClientRect().top + window.pageYOffset - totalOffset;
+                    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+                    var navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        })();
+    </script>
     <!-- Philosophie Section -->
     <section id="philosophie" class="py-5">
         <div class="container">
@@ -257,7 +337,7 @@
                 </div>
                 <div class="col-12 col-md-4 d-flex">
                     <div class="text-center d-flex align-items-center w-100">
-                        <img src="Images/acronimo.jpg" alt="Rica Haircare Produkte" class="img-fluid rounded shadow" style="max-height: 300px; object-fit: cover; width: 100%;">
+                        <img src="Images/acronimo.jpg" alt="Rica Haircare Produkte" class="img-fluid rounded shadow" style="width: 100%;">
                     </div>
                 </div>
             </div>
@@ -309,7 +389,7 @@
                     <!-- Chromoplus Bild rechts -->
                     <div style="width: 100%;">
                         <div style="background-color: #f8f9fa; border-radius: 10px; overflow: hidden; width: 100%; display: flex; justify-content: center; margin-bottom: 15px;">
-                            <img src="Images/chromoplus2.png" alt="Chromoplus Haarfarben" class="img-fluid rounded shadow" style="width: 100%; height: auto; object-fit: contain; max-height: 250px;">
+                            <img src="Images/chromoplus2.png" alt="Chromoplus Haarfarben" class="img-fluid rounded shadow" style="width: 100%; height: auto; object-fit: contain;">
                         </div>
                         <div class="text-center">
                             <a href="RICAProducts.html" class="btn btn-outline-primary btn-lg" style="border-color: #6f6e57; color: #6f6e57; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#6f6e57'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#6f6e57';">
@@ -322,7 +402,7 @@
 
             <!-- Fünfte Produktkarte - RICA Transparenz -->
             <div class="row justify-content-center mt-4 mt-md-5">
-                <div class="col-12 col-md-10">
+                <div id="rica-card" class="col-12 col-md-10 rica-card">
                     <div class="card p-3 p-md-4 shadow-sm">
                         <div class="card-body">
                             <div class="text-center mb-3">
@@ -334,7 +414,7 @@
                             </div>
                             <h4 class="mb-3" style="color: #6f6e57;">Reine Inhaltsstoffe für gesundes Haar</h4>
                             <p class="lead">RICA hat alle unnötigen Inhaltsstoffe aus den Produkten entfernt und transparente Formeln entwickelt, die weder Ihnen noch der Umwelt schaden.</p>
-                            <p class="d-none d-md-block">RICA hebt nur das hervor, was wirklich in den Produkten steckt – und zeigt Ihnen offen und selbstbewusst, welche Inhaltsstoffe Sie darin nicht finden:</p>
+                            <p class="d-none d-md-block">RICA hebt nur das hervor, was wirklich in den Produkten steckt – und zeigt Ihnen offen und selbstbewusst, welche Inhaltsstoffe Sie darin nicht finden.</p>
 
                             <!-- Mobile Version - verkürzte Liste -->
                             <div class="d-md-none">
@@ -348,7 +428,7 @@
                                 </div>
                             </div>
 
-                           <div class="card-body p-4">
+                           <div class="card-body p-4 d-none d-md-block">
                             <h4 class="mb-4 text-center" style="color: #6f6e57;">Was Sie NICHT in RICA Produkten finden:</h4>
 
                             <div class="row">
@@ -608,7 +688,7 @@
                 name: "Nils Mucke",
                 title: "Friseurgeselle",
                 photo: "Images/Nils_kl.jpg",
-                experience: "Seit 2015 lebe ich meinen Traum als Herrenfriseur. Ob klassisch und elegant oder modern und trendbewusst - ich liebe es, individuelle Styles zu kreieren, die perfekt zu dir passen. Auch Dauerwellen für Herren gehören zu meinen Leistungen und sorgen für abwechslungsreiche und stylische Looks. Im Damenfach bediene ich gerne die Kurzhaarkundinnen.",
+                experience: "Seit 2013 lebe ich meinen Traum als Herrenfriseur. Ob klassisch und elegant oder modern und trendbewusst - ich liebe es, individuelle Styles zu kreieren, die perfekt zu dir passen. Auch Dauerwellen für Herren gehören zu meinen Leistungen und sorgen für abwechslungsreiche und stylische Looks. Im Damenfach bediene ich gerne die Kurzhaarkundinnen.",
                 personal: "Schon als kleiner Junge stand für mich fest: Ich will Friseur werden! Und jetzt wird's endlich Wirklichkeit - ab Januar 2026 eröffne ich zusammen mit meiner Frau Tina unseren eigenen Salon Mucke & Mähne in Taunusstein-Hahn. Wenn ich nicht gerade Haare schneide, verbringe ich am liebsten Zeit mit meiner Familie oder bin beim Laufen unterwegs - das gibt mir Energie und neue Ideen. Egal ob du einen zeitlosen Klassiker oder einen modernen Look willst - bei mir bekommst du deinen ganz persönlichen Style mit viel Leidenschaft, Präzision und Herzblut. Ich freue mich auf Sie!",
                 services: [
                     "Herrenhaarschnitte alle Längen",
@@ -622,15 +702,12 @@
                 name: "Werde Teil unseres Teams!",
                 title: "Stellenanzeige - Friseur/in (m/w/d)",
                 photo: "", // Kein Bild, da wir ein CSS-Div verwenden
-                experience: "Wir suchen eine/n leidenschaftliche/n Friseur/in (m/w/d) für unser junges, dynamisches Team! Du bringst Kreativität, Teamgeist und Freude am Umgang mit Menschen mit? Dann bist du bei uns genau richtig! Egal ob Berufseinsteiger/in oder erfahrene Fachkraft - wir bieten dir die Möglichkeit, dich weiterzuentwickeln und deine Ideen einzubringen.",
-                personal: "Bei Mucke & Mähne erwartet dich ein familiäres Arbeitsumfeld, faire Bezahlung und die Chance, von Anfang an bei unserem Aufbau dabei zu sein. Wir legen Wert auf Work-Life-Balance, regelmäßige Weiterbildungen und einen respektvollen Umgang miteinander. Starte deine Karriere in unserem modernen Salon in Taunusstein-Hahn und werde Teil unserer Vision!",
+                experience: "Wir suchen eine/n leidenschaftliche/n Friseur/in (m/w/d) für unser junges, dynamisches Team! Du bringst Kreativität, Teamgeist und Freude am Umgang mit Menschen mit? Dann bist du bei uns genau richtig! Wir bieten dir die Möglichkeit, dich weiterzuentwickeln und deine Ideen einzubringen.",
+                personal: "Bei Mucke & Mähne erwartet dich ein familiäres Arbeitsumfeld, faire Bezahlung und die Chance, von Anfang an bei unserem Aufbau dabei zu sein. Wir legen Wert auf Work-Life-Balance und einen respektvollen Umgang miteinander. Bewirb Dich bei uns und werde Teil unserer Vision!",
                 services: [
-                    "Vollzeit oder Teilzeit möglich",
-                    "Faire Bezahlung + Provision",
-                    "Kostenlose Weiterbildungen",
+                    "Faire Bezahlung",
                     "Modernes Arbeitsumfeld",
                     "Flexible Arbeitszeiten",
-                    "Urlaubsgeld & Weihnachtsgeld",
                     "Familiäres Team",
                     "Langfristige Perspektive"
                 ]

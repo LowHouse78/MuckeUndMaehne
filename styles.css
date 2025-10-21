@@ -1,6 +1,16 @@
 /* Global Styles */
+ :root {
+     --primary-nav-color: #6f6e57;
+ }
 html {
     scroll-padding-top: 110px; /* Kompensiert die fixed Navigation + Job Banner */
+}
+
+/* Desktop: slower marquee speed for readability */
+@media (min-width: 992px) {
+    .job-banner .scrolling-text {
+        animation-duration: 32s !important;
+    }
 }
 
 body {
@@ -185,9 +195,9 @@ body {
     }
 
     /* Container für zentrierten Text */
-    .navbar .container {
+    /* .navbar .container {
         position: relative;
-    }
+    } */
 
     /* Text horizontal zentriert zwischen Logo und Hamburger-Menü */
     .navbar .container::after {

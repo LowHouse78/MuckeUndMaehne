@@ -5,6 +5,7 @@
         display: none !important;
     }
 
+    /* (Reverted) */
     /* Navigation direkt anzeigen */
     #navbarNav {
         display: block !important;
@@ -87,6 +88,81 @@
         display: block !important;
     }
 
+    /* Ensure the expanded menu keeps the navbar background on small portrait devices */
+    .navbar-collapse.show {
+        background: var(--primary-nav-color) !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    /* Keep nav links readable on the colored background */
+    .navbar-collapse.show .nav-link {
+        color: white !important;
+    }
+
+    /* Make the expanded menu overlay under the navbar to prevent increasing navbar height */
+    #navbarNav.show {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 999 !important;
+        background: var(--primary-nav-color) !important;
+    }
+
+    /* Ensure the collapse area overlays and doesn't push the navbar height */
+    .navbar-collapse.show {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 998 !important;
+    }
+
+    /* Keep navbar height stable */
+    .navbar {
+        min-height: 56px !important;
+    }
+
+    /* Force navbar above the job banner so it doesn't appear transparent */
+    nav.navbar {
+        z-index: 1100 !important;
+    }
+
+    .navbar-collapse.show {
+        z-index: 1101 !important;
+    }
+
+    /* Force navbar background to stay visible when collapse is active */
+    nav.navbar.navbar-dark.fixed-top,
+    nav.navbar.navbar-dark.fixed-top .container,
+    .navbar.navbar-dark {
+        background-color: var(--primary-nav-color) !important;
+        background: var(--primary-nav-color) !important;
+    }
+
+    /* Explicit override: ensure navbar and collapse always have color and sit above the banner */
+    nav.navbar.navbar-dark.fixed-top,
+    nav.navbar.navbar-dark.fixed-top .container,
+    nav.navbar.navbar-dark.fixed-top .navbar-collapse,
+    #navbarNav,
+    #navbarNav.show,
+    .navbar-collapse.show {
+        background-color: var(--primary-nav-color) !important;
+        background: var(--primary-nav-color) !important;
+        z-index: 1200 !important; /* push well above banner */
+        -webkit-backdrop-filter: none !important; /* prevent transparency filters */
+        backdrop-filter: none !important;
+    }
+
+    /* Ensure nav links are on top and readable */
+    .navbar-collapse.show .nav-link,
+    nav.navbar .nav-link {
+        color: #ffffff !important;
+    }
+
     .navbar .container {
         position: relative;
         justify-content: center !important;
@@ -146,7 +222,7 @@
     #navbarNav.show .navbar-nav {
         align-items: center !important;
         text-align: center !important;
-        width: 100% !important;
+        width: auto !important; /* avoid forcing full width in landscape */
     }
 
     #navbarNav.show .nav-item {
@@ -154,15 +230,14 @@
         text-align: center !important;
     }
 
-    /* Logo perfekt zentrieren mit Flexbox */
+    /* Logo perfekt zentrieren mit Flexbox (but don't force 100% width in landscape) */
     #navbarNav.show .navbar-brand {
-        width: 100% !important;
+        width: auto !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        padding: 0.5rem 0 !important;
+        padding: 0.25rem 0 !important;
         margin: 0 !important;
-        margin-left: 2% !important;
     }
 
     #navbarNav.show .navbar-brand img {
@@ -175,6 +250,49 @@
         width: 100% !important;
         justify-content: center !important;
         display: block !important;
+    }
+}
+
+/* Smartphone portrait: keep the banner close to navbar */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    .job-banner {
+        position: fixed !important;
+        top: 60px !important; /* slightly closer */
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 999 !important;
+    }
+}
+
+/* Tablet portrait: small gap */
+@media screen and (min-width: 481px) and (max-width: 1024px) and (orientation: portrait) {
+    .job-banner {
+        position: fixed !important;
+        top: 68px !important; /* slight gap */
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 999 !important;
+    }
+}
+
+/* Desktop: more space below the navbar */
+@media screen and (min-width: 1200px) {
+    /* Desktop: keep the banner in the document flow with a modest gap */
+    .job-banner {
+        position: relative !important;
+        top: auto !important;
+        margin-top: 77px !important; /* increased gap */
+        left: auto !important;
+        right: auto !important;
+        z-index: 999 !important;
+    }
+
+    /* Hidden state for banner (slide up and fade) */
+    .job-banner.hidden {
+        transform: translateY(-120%) !important;
+        opacity: 0 !important;
+        transition: transform 0.4s ease, opacity 0.3s ease !important;
+        pointer-events: none !important;
     }
 }
 
@@ -256,10 +374,26 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
 
+    .navbar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* ensure container centers its children and leaves space for the toggler */
+    .navbar .container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding-left: 3.5rem !important; /* room for burger */
+        padding-right: 1rem !important;
+    }
+
+    /* keep the nav-items centered */
     .navbar-nav {
         flex-direction: row !important;
         justify-content: center !important;
-        width: 100% !important;
+        width: auto !important;
     }
 
     .navbar-nav .nav-link {
@@ -286,9 +420,25 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
 
+    /* Position job-banner closer to navbar like on desktop */
+    .job-banner {
+        top: calc(64px + 5px) !important; /* 5px gap under navbar */
+        z-index: 999 !important; /* keep below navbar but above content */
+    }
+
     .hero .btn {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
         font-weight: 500 !important;
+    }
+
+    /* Move job-banner further down in landscape to avoid overlap with navbar */
+    .job-banner {
+        position: relative !important; /* place in flow so it pushes content down */
+        top: auto !important;
+        margin-top: calc(64px + 5px) !important; /* 5px gap under navbar */
+        left: auto !important;
+        right: auto !important;
+        z-index: 999 !important;
     }
 }
 
@@ -304,6 +454,30 @@
 
     #navbarNav.show {
         display: block !important;
+    }
+
+    /* Touch-landscape: overlay the expanded nav as well */
+    #navbarNav.show {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 999 !important;
+        background: var(--primary-nav-color) !important;
+    }
+
+    .navbar-collapse.show {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 998 !important;
+    }
+
+    .navbar {
+        min-height: 56px !important;
     }
 
     .navbar-nav .nav-link {
@@ -335,6 +509,78 @@
 
     .navbar .container {
         position: relative;
+    }
+
+    /* ensure burger button is to the left with some breathing room */
+    .navbar-toggler {
+        position: absolute !important;
+        left: 1rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 10 !important;
+    }
+
+    /* Shrink the logo when the navbar is expanded to avoid increasing navbar height */
+    #navbarNav.show .navbar-brand img {
+        height: 36px !important;
+        max-height: 36px !important;
+        width: auto !important;
+    }
+
+    /* Remove any left offset on the brand to ensure perfect centering */
+    .navbar-brand {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .navbar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .navbar .container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding-left: 3.5rem !important; /* room for burger */
+        padding-right: 1rem !important;
+    }
+
+    .navbar-nav {
+        flex-direction: row !important;
+        justify-content: center !important;
+        width: auto !important;
+    }
+
+    .navbar-toggler {
+        position: absolute !important;
+        left: 1rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 10 !important;
+    }
+
+    /* Shrink the logo when the navbar is expanded to avoid increasing navbar height (touch devices) */
+    #navbarNav.show .navbar-brand img {
+        height: 36px !important;
+        max-height: 36px !important;
+        width: auto !important;
+    }
+
+    .navbar-brand {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    /* When menu is shown on touch tablets, ensure brand doesn't expand full width */
+    #navbarNav.show .navbar-brand {
+        width: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-left: 0 !important;
+        padding: 0.5rem 0 !important;
     }
 
     /* Zentrierter Text "Mucke & Mähne" anzeigen */
@@ -396,6 +642,16 @@
     .hero .btn {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
         font-weight: 500 !important;
+    }
+
+    /* Touch devices landscape: ensure job-banner sits below navbar */
+    .job-banner {
+        position: relative !important; /* place in flow so it pushes content down on touch landscape */
+        top: auto !important;
+        margin-top: calc(64px + 5px) !important;
+        left: auto !important;
+        right: auto !important;
+        z-index: 999 !important;
     }
 }
 
@@ -466,6 +722,71 @@
 
 /* iPad Portrait Optimierungen für Impressum und andere Seiten */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    /* Ensure the specific RICA card uses full product width */
+    #products .rica-card {
+        width: 90% !important;
+        max-width: 90% !important;
+        flex: 0 0 90% !important;
+        margin: 0 auto 1.5rem auto !important;
+    }
+
+    /* Last-resort override: ensure parent row uses full width and rica-card uses col-md-10 width */
+    #products .row.justify-content-center.mt-4 {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    #products .row.justify-content-center.mt-4 > .col-12.col-md-10.rica-card {
+        display: block !important;
+        width: 90% !important;
+        flex: 0 0 90% !important;
+        max-width: 90% !important;
+        margin: 0 auto 1.5rem auto !important;
+    }
+
+    #products .rica-card .card.p-3.p-md-4.shadow-sm {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Very specific selector to override competing rules */
+    #products .row.justify-content-center.mt-4 > .col-12.col-md-10.rica-card {
+        width: 90% !important;
+        max-width: 90% !important;
+        flex: 0 0 90% !important;
+    }
+
+    /* Final override by ID for maximum specificity */
+    #products #rica-card {
+        width: 90% !important;
+        max-width: 90% !important;
+        flex: 0 0 90% !important;
+        margin: 0 auto 1.5rem auto !important;
+        display: block !important;
+    }
+
+    #products #rica-card .card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 2rem !important; /* Increase internal spacing for text */
+    }
+
+    /* DEBUG: highlight the RICA card to verify CSS application (remove after verification) */
+    /* debug outlines removed */
+
+    /* Ensure inner card occupies full width and borders are included in the width */
+    #products #rica-card .card {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+    }
+
+    #products #rica-card .card .card-body {
+        width: 100% !important;
+        padding: 0 !important; /* card padding already applied above */
+        box-sizing: border-box !important;
+    }
     /* Hero-Sektion Anpassungen */
     .hero-small .display-4 {
         font-size: 2.5rem !important;
@@ -605,6 +926,57 @@
         margin-bottom: 3rem !important;
     }
 
+    /* Specific fix: Acronimo image should not be clipped on Tablet Portrait */
+    #products img[src*="acronimo"] {
+        object-fit: contain !important; /* ensure whole image visible */
+        height: auto !important; /* allow automatic height */
+        max-height: 320px !important; /* visible size limit */
+        width: auto !important; /* preserve aspect ratio */
+        max-width: 100% !important;
+        display: block !important;
+        margin: 0 auto !important;
+        background-color: transparent !important;
+    }
+
+    /* Ensure parent containers do not clip the image */
+    #products .col-md-4:has(img[src*="acronimo"]),
+    #products .col-12.col-md-4.d-flex:has(img[src*="acronimo"]) {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    /* (Reverted) */
+
+    /* Make Chromoplus background container square in tablet portrait */
+    #products .col-md-4.d-flex.align-items-start > div[style*="width: 100%"] > div[style*="background-color: #f8f9fa"] {
+        width: 280px !important; /* square dimension */
+        height: 280px !important; /* square dimension */
+        aspect-ratio: 1 / 1 !important;
+        display: inline-block !important;
+        padding: 10px !important;
+        margin: 0 auto 15px auto !important;
+        box-sizing: border-box !important;
+    }
+
+    #products .col-md-4.d-flex.align-items-start > div[style*="width: 100%"] > div[style*="background-color: #f8f9fa"] img {
+        width: auto !important; /* preserve image proportions and allow centering */
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important; /* show whole image */
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Also ensure container content centers horizontally */
+    #products .col-md-4.d-flex.align-items-start > div[style*="width: 100%"] > div[style*="background-color: #f8f9fa"] {
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
     /* Philosophie Section fixes */
     #philosophie .row {
         flex-direction: column !important;
@@ -615,6 +987,31 @@
         max-width: 500px !important;
         width: 100% !important;
         margin-bottom: 2rem !important;
+    }
+
+    /* Make the RICA transparency card equal to standard product width (col-md-10) */
+    #products .row.justify-content-center.mt-4 .col-12.col-md-10,
+    #products .col-12.col-md-10 {
+        max-width: 83.333333% !important; /* match philosophy width */
+        width: 83.333333% !important;
+        flex: 0 0 83.333333% !important;
+        margin: 0 auto 3rem auto !important;
+    }
+
+    /* Also ensure the card inside spans full width like others */
+    #products .col-12.col-md-10 .card.p-3.p-md-4.shadow-sm {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+        margin: 0 auto !important;
+    }
+
+    /* Strong target: Card that contains the RICA logo - force standard product width */
+    #products .col-12.col-md-10:has(.card img[src*="Ricalogo"]) {
+        width: 83.333333% !important;
+        flex: 0 0 83.333333% !important;
+        max-width: 83.333333% !important;
+        margin: 0 auto 3rem auto !important;
     }
 }
 
@@ -1048,5 +1445,562 @@
         font-size: 1rem !important;
         line-height: 1.5 !important;
         margin-bottom: 1rem !important;
+    }
+
+    /* =============================================
+       SERVICE CARD BACKGROUND FIXES - TABLET PORTRAIT
+       ============================================= */
+
+    /* Herrenhaarschnitt Service Card - an andere Service Cards anpassen */
+    #services .col-md-4:nth-child(2) .service-card {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        padding: 1.5rem !important; /* Gleicher Padding wie andere Cards */
+        margin: 0 auto 2rem auto !important; /* Gleicher Margin wie andere Cards */
+        width: 100% !important; /* Gleiche Breite wie andere Cards */
+        max-width: 400px !important; /* Gleiche max-width wie andere Cards */
+        display: block !important; /* Normaler Block-Display */
+        text-align: center !important;
+        background: white !important;
+        border-radius: 20px !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important; /* Gleiche Transition wie andere Cards */
+    }
+
+    /* Herrenhaarschnitt Bild - exakte Größe beibehalten */
+    #services .col-md-4:nth-child(2) .service-card img {
+        max-width: 300px !important;
+        max-height: 250px !important;
+        width: 300px !important;
+        height: 250px !important;
+        object-fit: cover !important;
+        border-radius: 15px !important;
+        margin: 0 auto 1rem auto !important; /* Gleicher Abstand wie andere Cards */
+        display: block !important;
+    }
+
+    /* Service Card Text wie andere Cards gestalten */
+    #services .col-md-4:nth-child(2) .service-card h3 {
+        margin-bottom: 0.8rem !important; /* Gleicher Abstand wie andere Cards */
+        margin-top: 0.8rem !important;
+        font-size: 1.6rem !important; /* Gleiche Schriftgröße wie andere Cards */
+        line-height: 1.3 !important;
+        color: #6f6e57 !important; /* Gleiche Farbe wie andere Cards */
+    }
+
+    #services .col-md-4:nth-child(2) .service-card p {
+        margin-bottom: 0.8rem !important; /* Gleicher Abstand wie andere Cards */
+        margin-top: 0.5rem !important;
+        font-size: 1.2rem !important; /* Gleiche Schriftgröße wie andere Cards */
+        line-height: 1.4 !important;
+    }
+
+    /* Hover Effect wie andere Service Cards */
+    #services .col-md-4:nth-child(2) .service-card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    }
+
+    /* Container-Spalte normale Anzeige */
+    #services .col-md-4:nth-child(2) {
+        display: block !important; /* Zurück zu normalem Display */
+        margin-bottom: 1.5rem !important; /* Gleicher Abstand wie andere Spalten */
+    }
+
+    /* Alternative für direktes service-card targeting */
+    #services .service-card img[alt*="Herrenschnitt"]::after,
+    #services .service-card img[alt*="barber"]::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: inherit !important;
+        border-radius: inherit !important;
+        z-index: -1 !important;
+    }
+
+    /* =============================================
+       PRODUCTS SECTION WIDTH MATCH PHILOSOPHIE
+       ============================================= */
+
+    /* Alle Produktkarten an Philosophie-Textbox Breite anpassen (col-md-10) */
+    #products .col-md-6,
+    #products .col-md-4 {
+        max-width: 83.333333% !important; /* entspricht col-md-10 Bootstrap */
+        width: 100% !important;
+        margin: 0 auto 3rem auto !important;
+    }
+
+    /* Products Container wie Philosophie gestalten */
+    #products .row {
+        justify-content: center !important;
+        align-items: stretch !important;
+    }
+
+    /* Produktkarten an Philosophie-Card Stil anpassen */
+    #products .card {
+        max-width: 100% !important;
+        margin: 0 auto 2rem auto !important;
+        padding: 1.5rem !important;
+        box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075) !important; /* wie Philosophie shadow-sm */
+        border-radius: 0.375rem !important;
+        border: 1px solid rgba(0,0,0,0.125) !important;
+    }
+
+    /* Produktbilder in der Breite anpassen */
+    #products img {
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+    }
+
+    /* Rica Card spezielle Anpassung */
+    #products .col-md-6 .card {
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    /* =============================================
+       ALL PRODUCTS ELEMENTS WIDTH STANDARDIZATION
+       ============================================= */
+
+    /* Alle zweiten und dritten Produktkarten-Container */
+    #products .col-md-5,
+    #products .col-12.col-md-5 {
+        max-width: 83.333333% !important; /* col-md-10 Breite */
+        width: 100% !important;
+        margin: 0 auto 3rem auto !important;
+    }
+
+    /* Vierte Produktkarte Container ebenfalls anpassen */
+    #products .col-md-6:last-of-type,
+    #products .col-12.col-md-6 {
+        max-width: 83.333333% !important; /* col-md-10 Breite */
+        width: 100% !important;
+        margin: 0 auto 3rem auto !important;
+    }
+
+    /* Alle Produktbilder Container */
+    #products .col-md-4,
+    #products .col-12.col-md-4 {
+        max-width: 83.333333% !important; /* col-md-10 Breite */
+        width: 100% !important;
+        margin: 0 auto 2rem auto !important;
+    }
+
+    /* Produktkarten Reihen zentrieren */
+    #products .row.justify-content-center {
+        justify-content: center !important;
+        max-width: 83.333333% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Naturica Bildcontainer anpassen */
+    #products div[style*="background-color: #f8f9fa"] {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto 20px auto !important;
+    }
+
+    /* Chromoplus Bildcontainer anpassen */
+    #products .col-md-4 div[style*="width: 100%"] {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Alle Produktkarten einheitlich gestalten */
+    #products .card.shadow-sm {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+/* Reduce vertical spacing between product cards globally on this page */
+/* Target product sections which use .py-5 and .card.shadow-lg.mb-5 */
+.py-5 .card.shadow-lg.mb-5,
+.py-5 .card {
+    margin-bottom: 1rem !important; /* smaller gap between product cards */
+}
+
+/* Slightly increase spacing on very large desktops for visual breathing room */
+@media (min-width: 1400px) {
+    .py-5 .card.shadow-lg.mb-5,
+    .py-5 .card {
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* Reduce spacing between columns inside product sections */
+.py-5 .row > [class*='col-'] {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Override Bootstrap utility class inside product sections if used */
+.py-5 .mb-5 {
+    margin-bottom: 1rem !important;
+}
+
+/* Strong overrides for RICA product page: make card spacing very small */
+.rica-page .product-card {
+    margin: 0 auto 0.25rem auto !important; /* very small vertical gap */
+    padding-bottom: 0.5rem !important;
+}
+
+.rica-page .product-card + .product-card {
+    margin-top: 0.25rem !important; /* tiny spacing between consecutive product cards */
+}
+
+/* Also shrink spacing for columns inside the RICA page */
+.rica-page .row > [class*='col-'] {
+    margin-bottom: 0.25rem !important;
+}
+
+/* Reduce margins of utility classes within RICA page to avoid conflicting large paddings */
+.rica-page .mb-5 {
+    margin-bottom: 0.25rem !important;
+}
+
+@media (min-width: 1200px) {
+    .rica-page .product-card {
+        margin-bottom: 0.5rem !important; /* slightly larger on wide screens */
+    }
+}
+
+    /* Button Container zentrieren */
+    #products .text-center {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Spezielle Anpassung für verschachtelte Divs */
+    #products .d-flex.align-items-center,
+    #products .text-center.d-flex.align-items-center {
+        max-width: 100% !important;
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    /* =============================================
+       PRODUCTS TEXT ALIGNMENT AND SPACING FIXES
+       ============================================= */
+
+    /* Alle Texte in Produktkarten linksbündig ausrichten */
+    #products .card-body {
+        text-align: left !important;
+        padding: 1.5rem !important;
+    }
+
+    #products .card-body h4,
+    #products .card-body h5,
+    #products .card-body p {
+        text-align: left !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Spezielle Textkarten unter Bildern linksbündig */
+    #products .card.shadow-sm div[style*="padding: 15px"] {
+        text-align: left !important;
+        padding: 1.5rem !important;
+    }
+
+    #products .card.shadow-sm div[style*="padding: 15px"] h4,
+    #products .card.shadow-sm div[style*="padding: 15px"] h5 {
+        text-align: left !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* =============================================
+       IMAGE CONTAINER AND ROUNDING FIXES
+       ============================================= */
+
+    /* Acronimo Bild (RICA Bild) - originale Proportionen, kleinere Größe */
+    #products img[src*="acronimo"] {
+        border-radius: 15px !important;
+        width: auto !important; /* Automatische Breite für originale Proportionen */
+        height: 280px !important; /* Feste Höhe, gleich wie Naturica */
+        max-width: 100% !important; /* Nicht breiter als Container */
+        object-fit: contain !important; /* Originale Proportionen beibehalten */
+        margin: 0 auto !important; /* Zentrieren */
+        display: block !important;
+        background-color: transparent !important;
+    }
+
+    /* Acronimo Bild Container - Parent Div */
+    #products img[src*="acronimo"].img-fluid.rounded.shadow {
+        border-radius: 15px !important;
+    }
+
+    /* Container um das Acronimo Bild - exakt wie andere Produktkarten behandeln */
+    #products .col-md-4:has(img[src*="acronimo"]),
+    #products .col-12.col-md-4.d-flex:has(img[src*="acronimo"]) {
+        max-width: 83.333333% !important; /* Philosophie Breite = col-md-10 */
+        width: 100% !important;
+        margin: 0 auto 3rem auto !important;
+        flex: none !important;
+        background-color: transparent !important; /* Kein extra Hintergrund */
+        border-radius: 0 !important; /* Kein extra Border */
+        overflow: visible !important;
+        padding: 15px !important; /* Standard Bootstrap Padding */
+        height: auto !important; /* Keine feste Höhe */
+    }
+
+    /* Acronimo Spalte selbst - exakt wie andere Produktspalten */
+    #products .row.justify-content-center.align-items-stretch:first-child .col-md-4 {
+        max-width: 83.333333% !important; /* Philosophie Breite = col-md-10 */
+        flex: none !important;
+        width: 83.333333% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Alle anderen Produktspalten auch auf Philosophie Breite */
+    #products .col-md-5,
+    #products .col-12.col-md-5,
+    #products .col-md-6,
+    #products .col-12.col-md-6 {
+        max-width: 83.333333% !important; /* Philosophie Breite = col-md-10 */
+        width: 100% !important;
+        margin: 0 auto 3rem auto !important;
+        flex: none !important;
+    }
+
+    /* Alle Produktreihen zentrieren */
+    #products .row.justify-content-center {
+        justify-content: center !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Text-center div um Acronimo Bild - volle Höhe für komplettes Bild */
+    #products .col-md-4 .text-center.d-flex.align-items-center.w-100:has(img[src*="acronimo"]) {
+        background-color: transparent !important;
+        border-radius: 0 !important; /* Kein Border-radius am Container */
+        overflow: visible !important; /* Wichtig: sichtbar statt hidden */
+        padding: 0 !important;
+        margin: 0 !important;
+        height: auto !important; /* Automatische Höhe für vollständiges Bild */
+        min-height: 280px !important; /* Mindesthöhe für das Bild */
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Fallback für alle RICA Produkte Bilder - nicht zerschneiden */
+    #products .col-md-4 img.img-fluid.rounded.shadow[style*="max-height: 300px"] {
+        border-radius: 15px !important;
+        object-fit: contain !important; /* Bild vollständig anzeigen */
+        width: 100% !important;
+        height: auto !important; /* Höhe automatisch anpassen */
+        max-width: 100% !important;
+        max-height: 320px !important; /* Begrenzung, aber keine feste Höhe */
+    }
+
+    /* Naturica Bildcontainer - Breite beibehalten */
+    #products .row:nth-child(2) .col-md-5:first-child div[style*="background-color: #f8f9fa"],
+    #products .row.justify-content-center.align-items-stretch.mt-4:first-of-type .col-md-5:first-child div[style*="background-color: #f8f9fa"] {
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        padding: 0px !important;
+        margin-bottom: 20px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+        height: 280px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    #products .row:nth-child(2) .col-md-5:first-child div[style*="background-color: #f8f9fa"] img,
+    #products .row.justify-content-center.align-items-stretch.mt-4:first-of-type .col-md-5:first-child div[style*="background-color: #f8f9fa"] img {
+        border-radius: 15px !important;
+        width: 100% !important;
+        height: 280px !important;
+        object-fit: cover !important;
+        max-width: 100% !important;
+        max-height: 280px !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+
+    /* Chromoplus Bildcontainer - unverändert lassen */
+    #products .col-md-4 div[style*="background-color: #f8f9fa"] {
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        padding: 15px !important;
+        margin-bottom: 25px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    #products .col-md-4 div[style*="background-color: #f8f9fa"] img {
+        border-radius: 10px !important;
+        width: 100% !important;
+    height: 280px !important; /* Match the size of the element below */
+        object-fit: contain !important;
+        max-width: 100% !important;
+    max-height: 280px !important;
+    }
+
+    /* =============================================
+       BUTTON SPACING AND CENTERING
+       ============================================= */
+
+    /* Mehr zu RICA Button - mehr Abstand nach oben */
+    #products .text-center a.btn {
+        margin-top: 25px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* =============================================
+       MISSING TEXT CARD CENTERING
+       ============================================= */
+
+    /* Textkarte unter Button zentrieren - falls sie existiert */
+    #products .row:last-child,
+    #products .row.justify-content-center:last-child {
+        max-width: 83.333333% !important;
+        margin: 2rem auto !important;
+        justify-content: center !important;
+    }
+
+    /* Textkarte unter Button Container */
+    #products .row:last-child .col-md-6,
+    #products .row:last-child .col-12 {
+        max-width: 83.333333% !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Textkarte unter Button - Card selbst */
+    #products .row:last-child .card {
+        text-align: left !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    #products .row:last-child .card-body {
+        text-align: left !important;
+        padding: 1.5rem !important;
+    }
+
+    #products .row:last-child .card-body h4,
+    #products .row:last-child .card-body h5,
+    #products .row:last-child .card-body p {
+        text-align: left !important;
+    }
+
+    /* =============================================
+       PHILOSOPHIE SECTION TEXT ALIGNMENT
+       ============================================= */
+
+    /* Philosophie Sektion - alle Texte linksbündig */
+    #philosophie .card-body {
+        text-align: left !important;
+        padding: 2rem !important;
+    }
+
+    #philosophie .card-body p.lead {
+        text-align: left !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    #philosophie .card-body ul {
+        text-align: left !important;
+        margin-bottom: 1.5rem !important;
+        padding-left: 1.2rem !important;
+    }
+
+    #philosophie .card-body ul li {
+        text-align: left !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    #philosophie .card-body p:last-child {
+        text-align: left !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Philosophie Card Container */
+    #philosophie .card {
+        text-align: left !important;
+    }
+
+    /* Philosophie Überschrift bleibt zentriert */
+    #philosophie h2.text-center {
+        text-align: center !important;
+    }
+
+    /* =============================================
+       PRODUCTS SECTION TITLE SPACING
+       ============================================= */
+
+    /* Vergrößerter Abstand zwischen Titel und RICA Box */
+    #products h2.text-center.mb-5 {
+        margin-bottom: 4rem !important; /* Vergrößert von 3rem auf 4rem */
+    }
+
+    /* Alternative falls mb-5 nicht greift */
+    #products h2.text-center {
+        margin-bottom: 4rem !important;
+    }
+
+    /* Sicherstellen dass der erste Container mehr Abstand hat */
+    #products .row.justify-content-center.align-items-stretch:first-of-type {
+        margin-top: 1rem !important;
+    }
+
+    /* FINAL OVERRIDE (FIXED): outer RICA container = col-md-10 width; inner card fills 100% */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        #products #rica-card {
+            width: 90% !important;
+            max-width: 90% !important;
+            margin: 0 auto 1.5rem auto !important;
+            flex: 0 0 90% !important;
+            box-sizing: border-box !important;
+            display: block !important;
+        }
+
+    /* inner card and body should occupy full width of the container */
+        #products #rica-card .card,
+        #products #rica-card .card .card-body,
+        #products #rica-card .card .card-body > * {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+            display: block !important;
+        }
+
+        /* Ensure inner padding is generous for better readability */
+        #products #rica-card .card {
+            padding: 2rem !important;
+        }
+
+        /* Add reduced vertical spacing above and below the RICA card */
+        #products #rica-card {
+            margin-top: 1.5rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        /* Increase spacing for the main heading inside the RICA card */
+        #products #rica-card .card .card-body h4.mb-3 {
+            margin-top: 1.75rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+    }
+
+    /* Hide the long 'Was Sie NICHT' list and its heading in portrait for RICA */
+    #products #rica-card .card .card-body h4.mb-4.text-center,
+    #products #rica-card .card .card-body .row {
+        display: none !important;
     }
 }
