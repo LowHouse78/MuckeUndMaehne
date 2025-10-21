@@ -748,8 +748,8 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait),
        screen and (min-width: 768px) and (max-width: 1280px) and (max-height: 1024px) {
 
-    /* Alle Produktsektionen - vertikale Anordnung */
-    .card .row {
+    /* Alle Produktsektionen - vertikale Anordnung erzwingen */
+    .card .row.align-items-center {
         flex-direction: column !important;
         align-items: center !important;
     }
@@ -758,12 +758,25 @@
         width: 100% !important;
         max-width: 100% !important;
         margin-bottom: 2rem !important;
+        order: unset !important;
     }
 
-    /* order-md-2 und order-md-1 für Tablet Portrait deaktivieren */
-    .col-md-6.order-md-2,
+    /* Spezifische Reihenfolge: Text zuerst, dann Bilder */
+    .card .col-md-6:first-child {
+        order: 1 !important;
+    }
+
+    .card .col-md-6:last-child {
+        order: 2 !important;
+    }
+
+    /* order-md-2 und order-md-1 für Tablet Portrait komplett überschreiben */
+    .col-md-6.order-md-2 {
+        order: 2 !important;
+    }
+
     .col-md-6.order-md-1 {
-        order: 0 !important;
+        order: 2 !important;
     }
 
     /* Bilder in natürlichen Proportionen */
