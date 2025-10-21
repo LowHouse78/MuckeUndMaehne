@@ -971,4 +971,82 @@
         transform: translateY(-5px) !important;
         box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
     }
+
+    /* =============================================
+       SPECIFIC SERVICE IMAGES - TABLET PORTRAIT
+       ============================================= */
+
+    /* Herrenhaarschnitte Bild verkleinern - an andere Bilder anpassen */
+    #services .service-card:nth-child(1) img,
+    #services .service-card img[alt*="Herrenhaarschnitt"],
+    #services .service-card img[alt*="herren"] {
+        max-width: 300px !important;
+        max-height: 250px !important;
+    }
+
+    /* =============================================
+       PRODUCTS SECTION - TABLET PORTRAIT FIXES
+       ============================================= */
+
+    /* Alle Produktkarten an RICA Breite anpassen */
+    #products .col-md-6 {
+        max-width: 400px !important;
+        width: 100% !important;
+        margin: 0 auto 3rem auto !important;
+    }
+
+    /* Produktkarten-Container zentrieren */
+    #products .row {
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 2rem !important;
+    }
+
+    /* Produktbilder einheitlich gestalten */
+    #products .card img,
+    #products img {
+        width: 100% !important;
+        max-width: 350px !important;
+        height: auto !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+
+    /* Produktkarten einheitliche Gestaltung */
+    #products .card {
+        max-width: 400px !important;
+        margin: 0 auto 2rem auto !important;
+        border-radius: 15px !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+        transition: all 0.3s ease !important;
+    }
+
+    #products .card:hover {
+        transform: translateY(-5px) !important;
+        box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+    }
+
+    /* Produktkarten-Body */
+    #products .card-body {
+        padding: 1.5rem !important;
+        text-align: center !important;
+    }
+
+    /* Produkttitel */
+    #products .card h5,
+    #products h5 {
+        font-size: 1.3rem !important;
+        margin-bottom: 1rem !important;
+        color: #6f6e57 !important;
+        font-weight: 600 !important;
+    }
+
+    /* Produktbeschreibung */
+    #products .card p,
+    #products p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 1rem !important;
+    }
 }
