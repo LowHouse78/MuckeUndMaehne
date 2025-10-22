@@ -1307,6 +1307,20 @@
         text-align: center !important;
     }
 
+    /* Tablet Portrait: Modal-Text linksbündig */
+    @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        .modal-body,
+        .modal-body .member-details,
+        .modal-body p,
+        .modal-body h4,
+        .modal-body h6,
+        .modal-body div,
+        .modal-body ul,
+        .modal-body li {
+            text-align: left !important;
+        }
+    }
+
     /* =============================================
        SERVICES SECTION - TABLET PORTRAIT FIXES
        ============================================= */
