@@ -70,17 +70,19 @@ body {
     justify-content: center;
     text-align: center;
     color: black;
-    padding-top: 70px;
+    padding-top: 0px;
 }
 
 .hero-content {
     max-width: 800px;
     padding: 20px;
+    margin-top: -40px;
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 /* Team Section */
@@ -244,6 +246,8 @@ body {
 
     .hero img {
         max-width: 85% !important;
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
     }
 
     .hero p {
