@@ -99,12 +99,15 @@
             <div class="row justify-content-center">
                 <div class="col-md-4 mb-4">
                     <div class="team-member">
-                        <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('tina')">
+                        <div class="team-photo-container" data-member="tina" style="position: relative; cursor: pointer;">
                             <img src="Images/Tina_kl.jpg" alt="Tina Mucke" class="img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; object-fit: cover; transition: all 0.3s ease;">
                             <div class="photo-overlay" style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; background: rgba(111, 110, 87, 0.8); opacity: 0; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
                                 <span><i class="bi bi-info-circle me-2"></i>Mehr erfahren</span>
                             </div>
                         </div>
+                        <button class="btn btn-sm btn-outline-secondary mb-2 d-md-none team-info-btn" data-member="tina" style="border-color: #6f6e57; color: #6f6e57;">
+                            <i class="bi bi-info-circle me-1"></i>Mehr Infos
+                        </button>
                         <h3>Tina Mucke</h3>
                         <p>Leidenschaftliche Meisterfriseurin</p>
                         <p>Spezialisiert auf Damenhaarschnitte, Farben und Strähnen jeder Art und Naturlocken</p>
@@ -112,12 +115,15 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="team-member">
-                        <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('nils')">
+                        <div class="team-photo-container" data-member="nils" style="position: relative; cursor: pointer;">
                             <img src="Images/Nils_kl.jpg" alt="Nils Mucke" class="img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; object-fit: cover; transition: all 0.3s ease;">
                             <div class="photo-overlay" style="position: absolute; top: 0; left: 0; width: 300px; height: 300px; border-radius: 50%; background: rgba(111, 110, 87, 0.8); opacity: 0; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
                                 <span><i class="bi bi-info-circle me-2"></i>Mehr erfahren</span>
                             </div>
                         </div>
+                        <button class="btn btn-sm btn-outline-secondary mb-2 d-md-none team-info-btn" data-member="nils" style="border-color: #6f6e57; color: #6f6e57;">
+                            <i class="bi bi-info-circle me-1"></i>Mehr Infos
+                        </button>
                         <h3>Nils Mucke</h3>
                         <p>Leidenschaftlicher Friseurgeselle</p>
                         <p>Experte für Herrenhaarschnitte und Bartpflege</p>
@@ -125,7 +131,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="team-member">
-                        <div class="team-photo-container" style="position: relative; cursor: pointer;" onclick="openTeamModal('jobposting')">
+                        <div class="team-photo-container" data-member="jobposting" style="position: relative; cursor: pointer;">
                             <div class="job-posting-image img-fluid rounded-circle mb-3 team-photo" style="width: 300px; height: 300px; background: linear-gradient(135deg, #6f6e57 0%, #89876c 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; border: 3px solid #6f6e57; transition: all 0.3s ease; font-size: 1.2rem;">
                                 <div>
                                     <i class="bi bi-person-plus" style="font-size: 3rem; margin-bottom: 10px; display: block;"></i>
@@ -136,6 +142,9 @@
                                 <span><i class="bi bi-briefcase me-2"></i>Mehr erfahren</span>
                             </div>
                         </div>
+                        <button class="btn btn-sm btn-outline-secondary mb-2 d-md-none team-info-btn" data-member="jobposting" style="border-color: #6f6e57; color: #6f6e57;">
+                            <i class="bi bi-briefcase me-1"></i>Stellenanzeige
+                        </button>
                         <h3>Werde Teil unseres Teams!</h3>
                         <p>Leidenschaftliche/r Friseur/in gesucht</p>
                         <p>Starte deine Karriere bei Mucke & Mähne - wir freuen uns auf dich!</p>
@@ -701,8 +710,8 @@
                 name: "Werde Teil unseres Teams!",
                 title: "Stellenanzeige - Friseur/in (m/w/d)",
                 photo: "", // Kein Bild, da wir ein CSS-Div verwenden
-                experience: "Wir suchen eine/n leidenschaftliche/n Friseur/in (m/w/d) für unser junges, dynamisches Team! Du bringst Kreativität, Teamgeist und Freude am Umgang mit Menschen mit? Dann bist du bei uns genau richtig! Wir bieten dir die Möglichkeit, dich weiterzuentwickeln und deine Ideen einzubringen.",
-                personal: "Bei Mucke & Mähne erwartet dich ein familiäres Arbeitsumfeld, faire Bezahlung und die Chance, von Anfang an bei unserem Aufbau dabei zu sein. Wir legen Wert auf Work-Life-Balance und einen respektvollen Umgang miteinander. Bewirb Dich bei uns und werde Teil unserer Vision!",
+                experience: "Wir suchen eine/n leidenschaftliche/n Friseur/in (m/w/d) für unser junges, dynamisches Team! Du bringst Kreativität, Teamgeist und Freude am Umgang mit Menschen mit? Dann bist Du bei uns genau richtig! Wir bieten Dir die Möglichkeit, Dich weiterzuentwickeln und Deine Ideen einzubringen.",
+                personal: "Bei Mucke & Mähne erwartet Dich ein familiäres Arbeitsumfeld, faire Bezahlung und die Chance, von Anfang an bei unserem Aufbau dabei zu sein. Wir legen Wert auf Work-Life-Balance und einen respektvollen Umgang miteinander. Bewirb Dich bei uns und werde Teil unserer Vision!",
                 services: [
                     "Faire Bezahlung",
                     "Modernes Arbeitsumfeld",
@@ -715,67 +724,126 @@
 
         function openTeamModal(memberKey) {
             const member = teamData[memberKey];
-            if (!member) return;
+            if (!member) {
+                console.error('Team member not found:', memberKey);
+                return;
+            }
 
-            // Fill modal content
-            document.getElementById('modalMemberName').textContent = member.name;
-            document.getElementById('modalMemberTitle').textContent = member.title;
+            try {
+                // Fill modal content
+                document.getElementById('modalMemberName').textContent = member.name;
+                document.getElementById('modalMemberTitle').textContent = member.title;
 
-            // Handle photo for job posting
-            const photoElement = document.getElementById('modalMemberPhoto');
-            if (member.photo && member.photo !== "") {
-                photoElement.src = member.photo;
-                photoElement.alt = member.name;
-                photoElement.style.display = 'block';
-                photoElement.parentElement.style.display = 'block';
-            } else {
-                // For job posting - create custom div
-                photoElement.style.display = 'none';
-                photoElement.parentElement.innerHTML = `
-                    <div class="text-center">
+                // Handle photo for job posting
+                const photoElement = document.getElementById('modalMemberPhoto');
+                const photoContainer = photoElement.parentElement;
+
+                if (member.photo && member.photo !== "") {
+                    // Show regular photo for team members
+                    photoElement.src = member.photo;
+                    photoElement.alt = member.name;
+                    photoElement.style.display = 'block';
+                    photoElement.className = 'img-fluid rounded-circle shadow-lg';
+                    photoElement.style.width = '200px';
+                    photoElement.style.height = '200px';
+                    photoElement.style.objectFit = 'cover';
+                    photoElement.style.border = '4px solid #6f6e57';
+                } else {
+                    // For job posting - hide the img element and add custom content
+                    photoElement.style.display = 'none';
+                    photoElement.src = '';
+
+                    // Check if custom div already exists, if not create it
+                    let customDiv = photoContainer.querySelector('.job-posting-modal-image');
+                    if (!customDiv) {
+                        customDiv = document.createElement('div');
+                        customDiv.className = 'job-posting-modal-image text-center';
+                        photoContainer.appendChild(customDiv);
+                    }
+
+                    customDiv.style.display = 'block';
+                    customDiv.innerHTML = `
                         <div class="rounded-circle shadow-lg d-inline-flex align-items-center justify-content-center" style="width: 200px; height: 200px; background: linear-gradient(135deg, #6f6e57 0%, #89876c 100%); color: white; font-weight: bold; border: 4px solid #6f6e57;">
                             <div>
                                 <i class="bi bi-person-plus" style="font-size: 2.5rem; margin-bottom: 8px; display: block;"></i>
                                 <div style="font-size: 0.9rem; line-height: 1.2;">WIR SUCHEN<br>DICH!</div>
                             </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                }
+
+                // Hide custom div for regular members
+                const customDiv = photoContainer.querySelector('.job-posting-modal-image');
+                if (customDiv && member.photo && member.photo !== "") {
+                    customDiv.style.display = 'none';
+                }
+
+                document.getElementById('modalMemberExperience').textContent = member.experience;
+                document.getElementById('modalMemberPersonal').textContent = member.personal;
+
+                // Fill services
+                const servicesContainer = document.getElementById('modalMemberServices');
+                servicesContainer.innerHTML = '';
+                member.services.forEach(service => {
+                    const badge = document.createElement('span');
+                    badge.className = 'badge me-2 mb-2';
+                    badge.style.backgroundColor = '#6f6e57';
+                    badge.style.color = 'white';
+                    badge.textContent = service;
+                    servicesContainer.appendChild(badge);
+                });
+
+                // Show modal - with fallback for mobile devices
+                const modalElement = document.getElementById('teamModal');
+                if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                    const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+                    modal.show();
+                } else {
+                    // Fallback if Bootstrap is not loaded yet
+                    setTimeout(function() {
+                        const modal = new bootstrap.Modal(modalElement);
+                        modal.show();
+                    }, 100);
+                }
+            } catch (error) {
+                console.error('Error opening modal:', error);
             }
-
-            document.getElementById('modalMemberExperience').textContent = member.experience;
-            document.getElementById('modalMemberPersonal').textContent = member.personal;
-
-            // Fill services
-            const servicesContainer = document.getElementById('modalMemberServices');
-            servicesContainer.innerHTML = '';
-            member.services.forEach(service => {
-                const badge = document.createElement('span');
-                badge.className = 'badge me-2 mb-2';
-                badge.style.backgroundColor = '#6f6e57';
-                badge.style.color = 'white';
-                badge.textContent = service;
-                servicesContainer.appendChild(badge);
-            });
-
-            // Show modal
-            const modal = new bootstrap.Modal(document.getElementById('teamModal'));
-            modal.show();
         }
 
         // Add hover effects to team photos
         document.addEventListener('DOMContentLoaded', function() {
             const photoContainers = document.querySelectorAll('.team-photo-container');
+            const infoButtons = document.querySelectorAll('.team-info-btn');
 
+            // Add click handlers to photo containers
             photoContainers.forEach(container => {
                 const overlay = container.querySelector('.photo-overlay');
+                const memberKey = container.getAttribute('data-member');
 
+                // Hover effect
                 container.addEventListener('mouseenter', function() {
-                    overlay.style.opacity = '1';
+                    if (overlay) overlay.style.opacity = '1';
                 });
 
                 container.addEventListener('mouseleave', function() {
-                    overlay.style.opacity = '0';
+                    if (overlay) overlay.style.opacity = '0';
+                });
+
+                // Click handler
+                container.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openTeamModal(memberKey);
+                });
+            });
+
+            // Add click handlers to info buttons
+            infoButtons.forEach(button => {
+                const memberKey = button.getAttribute('data-member');
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openTeamModal(memberKey);
                 });
             });
         });
