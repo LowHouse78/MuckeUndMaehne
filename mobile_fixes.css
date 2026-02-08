@@ -253,46 +253,26 @@
     }
 }
 
-/* Smartphone portrait: keep the banner close to navbar */
+/* Smartphone portrait: banner in document flow */
 @media screen and (max-width: 480px) and (orientation: portrait) {
     .job-banner {
-        position: fixed !important;
-        top: 60px !important; /* slightly closer */
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 999 !important;
+        position: relative !important;
+        padding: 24px 0 !important;
     }
 }
 
-/* Tablet portrait: small gap */
+/* Tablet portrait: banner in document flow */
 @media screen and (min-width: 481px) and (max-width: 1024px) and (orientation: portrait) {
     .job-banner {
-        position: fixed !important;
-        top: 68px !important; /* slight gap */
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 999 !important;
+        position: relative !important;
+        padding: 30px 0 !important;
     }
 }
 
-/* Desktop: more space below the navbar */
+/* Desktop: banner in document flow */
 @media screen and (min-width: 1200px) {
-    /* Desktop: keep the banner in the document flow with a modest gap */
     .job-banner {
         position: relative !important;
-        top: auto !important;
-        margin-top: 77px !important; /* increased gap */
-        left: auto !important;
-        right: auto !important;
-        z-index: 999 !important;
-    }
-
-    /* Hidden state for banner (slide up and fade) */
-    .job-banner.hidden {
-        transform: translateY(-120%) !important;
-        opacity: 0 !important;
-        transition: transform 0.4s ease, opacity 0.3s ease !important;
-        pointer-events: none !important;
     }
 }
 
@@ -420,25 +400,9 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
 
-    /* Position job-banner closer to navbar like on desktop */
-    .job-banner {
-        top: calc(64px + 5px) !important; /* 5px gap under navbar */
-        z-index: 999 !important; /* keep below navbar but above content */
-    }
-
     .hero .btn {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
         font-weight: 500 !important;
-    }
-
-    /* Move job-banner further down in landscape to avoid overlap with navbar */
-    .job-banner {
-        position: relative !important; /* place in flow so it pushes content down */
-        top: auto !important;
-        margin-top: calc(64px + 5px) !important; /* 5px gap under navbar */
-        left: auto !important;
-        right: auto !important;
-        z-index: 999 !important;
     }
 }
 
@@ -644,14 +608,10 @@
         font-weight: 500 !important;
     }
 
-    /* Touch devices landscape: ensure job-banner sits below navbar */
+    /* Touch devices landscape: banner in document flow */
     .job-banner {
-        position: relative !important; /* place in flow so it pushes content down on touch landscape */
-        top: auto !important;
-        margin-top: calc(64px + 5px) !important;
-        left: auto !important;
-        right: auto !important;
-        z-index: 999 !important;
+        position: relative !important;
+        padding: 30px 0 !important;
     }
 }
 

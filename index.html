@@ -25,8 +25,8 @@
     <meta name="twitter:description" content="Professioneller Friseursalon für Damen und Herren mit RICA Produkten.">
     <meta name="twitter:image" content="https://muckeundmaehne.de/Images/Logo_MM.png">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile_fixes.css">
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="mobile_fixes.css?v=3">
 </head>
 <body>
     <!-- Navigation -->
@@ -55,6 +55,17 @@
         </div>
     </nav>
 
+    <!-- Laufschrift Job Banner -->
+    <div class="job-marquee" style="position: fixed; top: 64px; left: 0; right: 0; z-index: 998; background: linear-gradient(135deg, #89876c 0%, #6f6e57 100%); color: white; padding: 8px 0; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+        <div class="marquee-content" style="display: flex; animation: scroll-left 20s linear infinite; white-space: nowrap;">
+            <span style="font-size: 1.1rem; font-weight: 600; padding: 0 50px;">✨ Wir stellen ein - bewirb Dich jetzt! ✨</span>
+            <span style="font-size: 1.1rem; font-weight: 600; padding: 0 50px;">✨ Wir stellen ein - bewirb Dich jetzt! ✨</span>
+            <span style="font-size: 1.1rem; font-weight: 600; padding: 0 50px;">✨ Wir stellen ein - bewirb Dich jetzt! ✨</span>
+            <span style="font-size: 1.1rem; font-weight: 600; padding: 0 50px;">✨ Wir stellen ein - bewirb Dich jetzt! ✨</span>
+            <span style="font-size: 1.1rem; font-weight: 600; padding: 0 50px;">✨ Wir stellen ein - bewirb Dich jetzt! ✨</span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
@@ -65,6 +76,13 @@
                 <i class="bi bi-calendar-check me-2"></i>Jetzt Termin vereinbaren
             </a>
 
+        </div>
+    </section>
+
+    <!-- Job Banner Section -->
+    <section class="job-banner" style="padding: 36px 0; text-align: center; background-color: #f8f9fa;">
+        <div class="container">
+            <img src="Images/BewirbDich.jpg" alt="Bewirb Dich" class="img-fluid" style="max-width: 56%;">
         </div>
     </section>
 
@@ -199,34 +217,6 @@
         </div>
     </section>
 
-    <!-- Script: hide job-banner on scroll for desktop -->
-    <script>
-        (function() {
-            var banner = document.querySelector('.job-banner');
-            if (!banner) return;
-            var lastScrollY = window.scrollY;
-            var ticking = false;
-
-            function onScroll() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        var currentY = window.scrollY;
-                        // If scrolled down more than 100px and moving down, hide; else show
-                        if (currentY > 100 && currentY > lastScrollY) {
-                            banner.classList.add('hidden');
-                        } else {
-                            banner.classList.remove('hidden');
-                        }
-                        lastScrollY = currentY;
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-        })();
-    </script>
     <script>
         (function() {
             document.querySelectorAll('.nav-link[href="#home"]').forEach(function(link) {
