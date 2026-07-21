@@ -143,6 +143,229 @@ body {
     min-height: 270px !important;
 }
 
+/* Salon Gallery Section */
+.salon-section {
+    background-color: #26261f;
+    background-image: linear-gradient(135deg, #2b2a22 0%, #1c1c17 100%);
+}
+
+.salon-section h2 {
+    color: #ffffff;
+}
+
+.salon-subtitle {
+    color: #cfcbb0;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.salon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 200px);
+    grid-template-areas:
+        "empf empf loun wash"
+        "empf empf loun prod"
+        "team team stat stat"
+        "spgl spgl stat stat";
+    gap: 12px;
+}
+
+.salon-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    cursor: pointer;
+}
+
+.salon-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.salon-item:hover img {
+    transform: scale(1.08);
+}
+
+.salon-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 45%);
+    opacity: 0.85;
+    transition: opacity 0.4s ease;
+}
+
+.salon-item:hover::after {
+    opacity: 1;
+}
+
+.salon-caption {
+    position: absolute;
+    left: 16px;
+    bottom: 14px;
+    z-index: 2;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    transform: translateY(4px);
+    opacity: 0.92;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.salon-item:hover .salon-caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.salon-area-empf { grid-area: empf; }
+.salon-area-loun { grid-area: loun; }
+.salon-area-wash { grid-area: wash; }
+.salon-area-prod { grid-area: prod; }
+.salon-area-team { grid-area: team; }
+.salon-area-stat { grid-area: stat; }
+.salon-area-spgl { grid-area: spgl; }
+
+/* Tablet: 2-column mosaic */
+@media (max-width: 991.98px) {
+    .salon-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 180px);
+        grid-template-areas:
+            "empf empf"
+            "loun wash"
+            "loun prod"
+            "team team"
+            "stat stat"
+            "spgl spgl";
+    }
+}
+
+/* Mobile: single column stack */
+@media (max-width: 575.98px) {
+    .salon-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-rows: 240px;
+        grid-template-areas: none;
+        gap: 10px;
+    }
+    .salon-item { grid-area: auto !important; }
+    .salon-area-loun { grid-row: span 1; }
+}
+
+/* Salon Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-img {
+    max-width: 92vw;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    pointer-events: none;
+}
+
+.lightbox-counter {
+    position: absolute;
+    top: 20px;
+    left: 26px;
+    color: #cfcbb0;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+@media (max-width: 575.98px) {
+    .lightbox-nav {
+        width: 42px;
+        height: 42px;
+        font-size: 1.15rem;
+    }
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+    .lightbox-img { max-height: 74vh; }
+    .lightbox-caption { font-size: 1rem; }
+}
+
 /* Testimonials Section */
 .testimonial-card {
     background: white;
